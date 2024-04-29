@@ -14,10 +14,10 @@ function Table() {
           <thead>
             <tr>
               <th>ID</th>
-              <th>Nombre</th>
-              <th>Estado</th>
-              <th>Espacio Disponible</th>
-              <th>Acciones</th>
+              <th>Course Name </th>
+              <th>Course Status</th>
+              <th>Space Avaible</th>
+              <th>Actions</th>
             </tr>
           </thead>
           <tbody>
