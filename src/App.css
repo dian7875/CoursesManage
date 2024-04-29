@@ -1,30 +1,9 @@
 #root {
-    max-width: 1280px;
-    margin: 0 auto;
-    padding: 2rem;
-    text-align: center;
-  }
-  
-  .Table-container {
-    margin-top: 2rem;
-    width: 100%;
-    border-collapse: collapse;
-  }
-  
-  .Table-container th, .Table-container td {
-    border: 1px solid black;
-    padding: 1rem;
-    text-align: left;
-  }
-  
-  .Table-container th {
-    background-color: #FFFFFF;
-  }
-  
-  .Table-container tr:nth-child(even) {
-    background-color: #FFFFFF;
-  }
-  
-  body{
-    background-color: #AEC6CB;
-  }
+  width: 100%;
+  text-align: center;
+}
+
+body {
+  background-color: #AEC6CB;
+  margin: 0;
+}
