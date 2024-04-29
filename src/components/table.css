@@ -1,0 +1,20 @@
+  .Table-container {
+    margin-top: 2rem;
+    width: 100%;
+    border-collapse: collapse;
+    background-color: whitesmoke
+  }
+  .Table-container caption{
+    text-align: start;
+    font-size: x-large;
+    font-weight: bolder;
+  }
+  .Table-container th, .Table-container td {
+    padding: 1rem;
+    text-align: left;
+  }
+  .Table-container tr{
+    border: solid rgb(170, 170, 194);
+  }
+  
+  

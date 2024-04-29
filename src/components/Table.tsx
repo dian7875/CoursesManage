@@ -1,22 +1,20 @@
-import useGetAllUsers from '../Hooks/useGetAllCourses';
+import useGetAllCourses from '../Hooks/useGetAllCourses';
 import Course from '../types/courses';
-
+import "./table.css"
 function Table() {
-  const { courses }: { courses: Course[] } = useGetAllUsers();
+  const { courses }: { courses: Course[] } = useGetAllCourses();
 
   return (
     <>
     <table className='Table-container'>
+    <caption>List Of Courses Of University Three Duckling</caption>
       <thead>
         <tr>
           <th>ID</th>
           <th>Nombre</th>
           <th>Estado</th>
           <th>Espacio Disponible</th>
-          <th>Cupo Máximo</th>
-          <th>Profesor</th>
-          <th>Código del Curso</th>
-          <th>Número de Aula</th>
+          <th>Acciones</th>
         </tr>
       </thead>
       <tbody>
@@ -26,10 +24,6 @@ function Table() {
             <td>{course.name}</td>
             <td>{course.status ? 'Activo' : 'Inactivo'}</td>
             <td>{course.space_available}</td>
-            <td>{course.maximun_quota}</td>
-            <td>{course.professor}</td>
-            <td>{course.course_code}</td>
-            <td>{course.classroom_number}</td>
           </tr>
         ))}
       </tbody>
