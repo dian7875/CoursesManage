@@ -1,20 +1,62 @@
   .Table-container {
+    cursor: default;
     margin-top: 2rem;
     width: 100%;
     border-collapse: collapse;
-    background-color: whitesmoke
+    background-color: whitesmoke;
+    border-radius: 20px;
+    box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.5)
   }
-  .Table-container caption{
+
+  .Table-container caption {
+    width: 100%;
     text-align: start;
     font-size: x-large;
     font-weight: bolder;
   }
-  .Table-container th, .Table-container td {
+
+  .Table-container .cap2 {
+    text-align: end;
+    position: relative;
+    bottom: 20px;
+  }
+
+  .Table-container th,
+  .Table-container td {
     padding: 1rem;
     text-align: left;
   }
-  .Table-container tr{
-    border: solid rgb(170, 170, 194);
+
+  .Table-container tr {
+    border-bottom: rgb(202, 202, 202) solid;
+    border-top: rgb(202, 202, 202) solid;
   }
-  
-  
+
+  .Table-container tr:last-child {
+    border-bottom: none;
+    border-top: none;
+  }
+
+  .CourseStatus {
+    color: #4F5AED;
+    text-align: center;
+    background-color: #dcdeed;
+    width: 45%;
+    height: 20px;
+    border-radius: 30px;
+  }
+
+  .ClosedCoruse {
+    color: #4F5AED;
+    text-align: center;
+    background-color: #dcdeed;
+    width: 45%;
+    height: 20px;
+    border-radius: 30px;
+  }
+
+
+
+  .main {
+    padding: 2%;
+  }

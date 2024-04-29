@@ -1,0 +1,14 @@
+.Btn {
+    cursor: pointer;
+    padding: 10px;
+    background-color: transparent;
+    border: transparent;
+}
+
+.Pager {
+    display: flex;
+    cursor: default;
+    justify-content: end;
+    align-items: baseline;
+    gap: 10px;
+}

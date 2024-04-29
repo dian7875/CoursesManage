@@ -1,35 +1,39 @@
 import useGetAllCourses from '../Hooks/useGetAllCourses';
 import Course from '../types/courses';
+import Pager from './Pager';
 import "./table.css"
+
 function Table() {
   const { courses }: { courses: Course[] } = useGetAllCourses();
-
   return (
     <>
-    <table className='Table-container'>
-    <caption>List Of Courses Of University Three Duckling</caption>
-      <thead>
-        <tr>
-          <th>ID</th>
-          <th>Nombre</th>
-          <th>Estado</th>
-          <th>Espacio Disponible</th>
-          <th>Acciones</th>
-        </tr>
-      </thead>
-      <tbody>
-        {courses.map((course) => (
-          <tr key={course.id}>
-            <td>{course.id}</td>
-            <td>{course.name}</td>
-            <td>{course.status ? 'Activo' : 'Inactivo'}</td>
-            <td>{course.space_available}</td>
-          </tr>
-        ))}
-      </tbody>
-    </table>
-     <button >Agregar nuevo</button>
-     </>
+      <div className='main'>
+        <table className='Table-container'>
+          <caption>List Of Courses Of University Three Duckling</caption>
+          <caption className='cap2'><button>Agregar nuevo</button></caption>
+          <thead>
+            <tr>
+              <th>ID</th>
+              <th>Nombre</th>
+              <th>Estado</th>
+              <th>Espacio Disponible</th>
+              <th>Acciones</th>
+            </tr>
+          </thead>
+          <tbody>
+            {courses.map((course) => (
+              <tr key={course.id}>
+                <td>{course.id}</td>
+                <td>{course.name}</td>
+                <td>{course.status ? <div className='CourseStatus'>Open</div> : <div className='CourseStatus'>Closed</div>}</td>
+                <td>{course.space_available}</td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+        <Pager />
+      </div>
+    </>
   );
 }
 
