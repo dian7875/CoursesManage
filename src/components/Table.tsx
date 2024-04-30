@@ -8,7 +8,6 @@ import Buttoms from "./Buttoms";
 
 function Table() {
   const { courses }: { courses: Course[] } = useGetAllCourses();
-  
   return (
     <>
       <div className="main">

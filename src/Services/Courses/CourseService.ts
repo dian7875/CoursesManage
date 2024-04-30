@@ -4,6 +4,13 @@ import Course from "../../types/courses";
 /* eslint-disable @typescript-eslint/no-explicit-any */
 const urlCoursesBase = `https://662d9fcea7dda1fa378af332.mockapi.io/api/PR4/courses`;
 
+
+const getAllCoursesPages = async () =>{
+    const response = await fetch(urlCoursesBase);
+    const result = await response.json();
+    return result;
+}
+
 const getAllCourses = async (page: number, limit: number) => {
     const response = await fetch(urlCoursesBase+`?page=${page}&limit=${limit}`);
     const result = await response.json();
@@ -48,5 +55,6 @@ export {
     getAllCourses,
     getCourseById,
     createCourse,
-    deleteCourse
+    deleteCourse,
+    getAllCoursesPages
 }
