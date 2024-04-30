@@ -1,5 +1,5 @@
 type Course = {
-    id: number;
+    id: string;
     name: string;
     status: boolean;
     space_available : number,
