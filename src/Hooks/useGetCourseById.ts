@@ -3,7 +3,7 @@ import {  getCourseById } from "../Services/Courses/CourseService"
 import Course from "../types/courses";
 
 
-const useGetUserById = (id: number) => {
+const useGetCourseById = (id: string) => {
 
     const [course, setCourse] = useState<Course[]>([])
 
@@ -19,4 +19,4 @@ const useGetUserById = (id: number) => {
     return { course };
 }
 
-export default useGetUserById
+export default useGetCourseById
