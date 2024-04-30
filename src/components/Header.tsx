@@ -1,5 +1,6 @@
 import image from "../assets/Icon.png"
 import "./Header.css"
+import { Outlet } from "react-router-dom";
 const Header = () => {
   return (
     <>
@@ -7,6 +8,7 @@ const Header = () => {
         <img width={70} src={image} alt="" />
         <p>University Three Duckling</p>
       </div>
+      <Outlet />
     </>
   )
 }
