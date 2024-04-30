@@ -1,21 +1,27 @@
-import { Routes, Route, BrowserRouter as Router } from 'react-router-dom';
-import Header from "./components/Header"
-import Form from "./components/Form";
-import Table from "./components/Table"
-import './App.css'
-import CourseProvider from "./Context/CourseProvider"
+import Table from "./components/Table";
+import "./App.css";
+import Header from "./components/Header";
+import { BrowserRouter, Route, Routes } from "react-router-dom";
+import EditCourse from "./pages/edit/EditCourse";
+import CreateCourse from "./pages/create/CreateCourse";
+import DetailsCourse from "./pages/details/DetailsCourse";
+
 
 function App() {
   return (
-    <Router>
-      <CourseProvider>
-        <Header />
+    <>
+      <BrowserRouter>
         <Routes>
-          <Route path="/" element={<Table />} />
-          <Route path="/form" element={<Form />} />
+          <Route path="/" element={<Header />}>
+            <Route index element={<Table />} />
+            <Route path="/create" element={<CreateCourse />} />
+            <Route path="/edit/:courseId" element={<EditCourse />} />
+            <Route path="/view/:courseId" element={<DetailsCourse />} />
+          </Route>
         </Routes>
-      </CourseProvider>
-    </Router>
+      </BrowserRouter>
+    
+    </>
   );
 }
 

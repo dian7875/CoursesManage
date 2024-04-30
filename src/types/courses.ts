@@ -1,3 +1,5 @@
+
+
 type Course = {
     id: string;
     name: string;
@@ -9,5 +11,6 @@ type Course = {
     classroom_number: number
 
   }
+ 
+export default Course
 
-  export default Course;
