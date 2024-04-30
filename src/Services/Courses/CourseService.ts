@@ -10,7 +10,7 @@ const getAllCourses = async (page: number, limit: number) => {
     return result;
 };
 
-const getCourseById = async (id: number) => {
+const getCourseById = async (id: string) => {
     const response = await fetch(`${urlCoursesBase}/${id}`);
     const result = await response.json();
     return result;

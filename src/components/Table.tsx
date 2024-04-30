@@ -4,14 +4,11 @@ import Course from "../types/courses";
 
 import Pager from "./Pager";
 import "./table.css";
+import Buttoms from "./Buttoms";
 
 function Table() {
   const { courses }: { courses: Course[] } = useGetAllCourses();
-  const navigate = useNavigate();
-
-  const handleAddNew = () => {
-    navigate('/form');
-  };
+  
   return (
     <>
       <div className="main">
@@ -44,18 +41,7 @@ function Table() {
                   )}
                 </td>
                 <td>{course.space_available}</td>
-                {/* Buttons */}
-                <div className="flex gap-2 mt-3">
-
-                <Link to={`/view/${course.id}`}>
-                  <button className="text-sm bg-cyan-900 text-white px-2 py-1 rounded-lg shadow-lg">View</button>
-                </Link>
-                <Link to={`/edit/${course.id}`}>
-                  <button className="text-sm bg-cyan-900 text-white px-2 py-1 rounded-lg shadow-lg">Edit</button>
-                </Link>
-
-                <button className="text-sm bg-cyan-900 text-white px-2 py-1 rounded-lg shadow-lg">Delete</button>
-                </div>
+                <Buttoms id={course.id}/>
               </tr>
             ))}
           </tbody>
