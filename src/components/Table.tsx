@@ -1,4 +1,4 @@
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import useGetAllCourses from "../Hooks/useGetAllCourses";
 import Course from "../types/courses";
 
@@ -7,11 +7,7 @@ import "./table.css";
 
 function Table() {
   const { courses }: { courses: Course[] } = useGetAllCourses();
-  const navigate = useNavigate();
 
-  const handleAddNew = () => {
-    navigate('/form');
-  };
   return (
     <>
       <div className="main">
