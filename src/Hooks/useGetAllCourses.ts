@@ -14,7 +14,6 @@ const useGetAllCourses = () => {
            async function() {
                const coursesFromService = await getAllCourses(pageNumber, limit);
                setCourses(coursesFromService);
-               console.log(coursesFromService.length);
            }
         )()
      },[pageNumber])
