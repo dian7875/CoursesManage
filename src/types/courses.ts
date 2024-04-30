@@ -4,7 +4,7 @@ type Course = {
     status: boolean;
     space_available : number,
     maximun_quota: number,
-    professor: number,
+    professor: string,
     course_code: string,
     classroom_number: number
 
