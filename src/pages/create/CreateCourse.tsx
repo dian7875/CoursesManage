@@ -62,7 +62,7 @@ function CreateCourse() {
 
    
         <div className="input-group">
-        <label htmlFor="professor">Professor Name</label>
+        <label htmlFor="professor">Professors Name</label>
         <input type="text" id='professor' {...register('professor')} />
 
         <label htmlFor="classroom_number">Classroom Number</label>
@@ -85,8 +85,9 @@ function CreateCourse() {
 
 
         <div className="button-group">
-        <button type="submit">Send</button>
-        <button type='button' onClick={onCancel}>Cancel</button>
+        <button className='cancelButton' type='button' onClick={onCancel}>Cancel</button>
+        <button className='sendButton' type="submit">Save</button>
+        
         </div>
 
       </form>
