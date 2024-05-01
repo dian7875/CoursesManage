@@ -52,22 +52,26 @@ function CreateCourse() {
       <div className="input-group">
         <label htmlFor="name">Course Name</label>
         <input type="text" id='name'  {...register('name')} />
+        <label htmlFor="professor">Professors Name</label>
+        <input type="text" id='professor' {...register('professor')} />
 
 
-        <label htmlFor="course_code"> Course Code</label>
-        <input type="text" id='course_code'  {...register('course_code')} />
+   
 
         </div>
 
 
    
         <div className="input-group">
-        <label htmlFor="professor">Professors Name</label>
-        <input type="text" id='professor' {...register('professor')} />
 
+
+        <label htmlFor="course_code"> Course Code</label>
+        <input type="text" id='course_code'  {...register('course_code')} />
+        
         <label htmlFor="classroom_number">Classroom Number</label>
         <input type="number" id='classroom_number'  {...register('classroom_number')} />
 
+     
         
         </div>
 
@@ -77,7 +81,7 @@ function CreateCourse() {
 
         </div>
         
-        <div className="input-group">
+        <div className="input-group-maximum">
         <label htmlFor="maximun_quota">Maximum Quota</label>
         <input type="number" id='maximun_quota'  {...register('maximun_quota')} />
 
