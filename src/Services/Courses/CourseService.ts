@@ -39,9 +39,10 @@ const createCourse = async (data : Course) => {
     return result;
 }
 
-const editCourse = async ({data, id}:{data: Course, id:string}) =>{
-    const response = await fetch(`${urlCoursesBase}/${id}`,{
-        method:'PATCH',
+
+const editCourse = async ({data}:{data: Course}) =>{
+    const response = await fetch(`${urlCoursesBase}/${40}`,{
+        method:'PUT',
         headers: {
             'Content-Type': 'application/json'
         },

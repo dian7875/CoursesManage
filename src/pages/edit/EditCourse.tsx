@@ -11,62 +11,89 @@ function EditCourse() {
 
   const { course } = id ? useGetCourseById(id) : { course: null };
 
-  const space_available = 5;
+ 
+  const MatriculaActual = course?.space_available;
+  const maximaCapacidad = course?.maximun_quota;
+  let space_available;
 
-
+if (typeof maximaCapacidad === 'number' && typeof MatriculaActual === 'number') {
+  space_available = maximaCapacidad - MatriculaActual;
+} else {
+  space_available = 0;
+}
 
   const onSubmit = async (data: any) => {
     try {
       await editCourse(data);
-
     } catch (error) {
-      console.error('Error in create course', error);
+      console.error('Error in EDIT course', error);
     }
   };
   const navigate = useNavigate();
+
   const onCancel = () => {
     navigate('/');
   };
 
-  const { handleSubmit } = useForm<Course>();
+  const { handleSubmit, register } = useForm<Course>();
 
   return (
     <>
       <div className="MainEdit">
-        <p>Edit Course</p>
+        <p>Edit Course {course?.id}{course?.course_code}</p>
         <form className='Form-Edit'
           onSubmit={handleSubmit(onSubmit)}>
           <div className="item">
             <span>Coruse Name </span>
-            <input title="Edit Field" type="text" value={course?.name}/>
+            <input
+              title="Edit Field"
+              type="text"
+              defaultValue={course?.name || ''}
+              {...register('name')}
+            />
           </div>
           <div className="item">
             <span>Course Code</span>
-            <input title="Edit Field" type="text" value={course?.course_code} />
+            <input title="Edit Field"
+              type="text"
+              defaultValue={course?.course_code || ''}
+              {...register('course_code')} />
           </div>
           <div className="item">
             <span>Teachers Name</span>
-            <input title="Edit Field" type="text" value={course?.professor}/>
+            <input title="Edit Field"
+              type="text"
+              defaultValue={course?.professor|| ''}
+              {...register('professor')}/>
           </div>
           <div className="item">
             <span>Classroom Number</span>
-            <input title="Edit Field" type="text" value={course?.classroom_number} />
+            <input title="Edit Field"
+              type="text"
+              defaultValue={course?.classroom_number || ''}
+              {...register('classroom_number')} />
           </div>
           <div className="item">
             <span>Matricula Actual</span>
-            <input title="Edit Field" type="text" value={course?.space_available} />
+            <input title="Edit Field"
+              type="text"
+              defaultValue={course?.space_available || ''}
+              {...register('space_available')}/>
           </div>
           <div className="item">
             <span>Maximum Quota</span>
-            <input title="Edit Field" type="text" value={course?.maximun_quota} />
+            <input title="Edit Field"
+              type="text"
+              defaultValue={course?.maximun_quota || ''}
+              {...register('maximun_quota')} />
           </div>
           <div className="item">
             <span>Course Status</span>
-            <input title="Edit Field" type="text" value={"Tengo que pensar como manejarlo aun"} />
+            <input title="Edit Field" type="checkbox" />
           </div>
           <div className="item">
-            <span>Availanle Space</span>
-            <input title="Edit Field" type="text" value={space_available} />
+            <span>Available Space</span>
+            <input readOnly title="Edit Field" type="text" value={space_available}/>
           </div>
           <button type="submit">Send</button>
           <button type='button' onClick={onCancel}>Cancel</button>
