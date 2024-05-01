@@ -12,7 +12,7 @@
     width: 100%;
     text-align: start;
     font-size: x-large;
- 
+    font-weight: bolder;
   }
 
   .Table-container .cap2 {
@@ -24,7 +24,6 @@
   .Table-container th,
   .Table-container td {
     padding: 1rem;
-    text-align: left;
   }
 
   .Table-container tr {
@@ -36,10 +35,8 @@
     border-bottom: none;
     border-top: none;
   }
-
   .CourseStatus {
     color: #4F5AED;
-    text-align: center;
     background-color: #dcdeed;
     width: 45%;
     height: 20px;
@@ -54,9 +51,6 @@
     height: 20px;
     border-radius: 30px;
   }
-
-
-
   .main {
-    padding: 2%;
+    padding: 0 4% 0 4%;
   }
