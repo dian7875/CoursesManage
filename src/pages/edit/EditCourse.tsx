@@ -12,22 +12,33 @@ function EditCourse() {
   };
   return (
     <>
-    <span>Edit Course {course?.course_code}</span>
-      <div>
-        <p>Course ID: {course?.id}</p>
-        <p>Course Name: {course?.name}</p>
-        <p>Course Code: {course?.course_code}</p>
-        <p>Teacher Name; {course?.professor}</p>
-        <p>ClassRoom Number: {course?.classroom_number}</p>
+    <span>Edit Course Id: {course?.id}</span>
+      <form>
+        <p>Course Name:</p>
+        <input title="CourseName" type="text" 
+        value={course?.name} />
+        <p>Course Code:</p>
+        <input title="Course Code" type="text" 
+        value={course?.course_code} />
+        <p>Teacher Name:</p>
+        <input title="Professor Name" type="text" 
+        value={course?.professor} />
+        <p>ClassRoom Number:</p>
+        <input title="Classroom Number" type="text" 
+        value={course?.classroom_number} />
         <p>Status: {course?.status}</p>
         <p>Current tuition: {course?.space_available}</p>
+        <input title="CourseName" type="text" 
+        value={course?.name} />
         <p>Max Quota Available </p>
-        <input title="Macimun Quota of course" type="text" placeholder="Please only Number" value={course?.maximun_quota}/>
+        <input title="Macimun Quota of course" type="text"
+        value={course?.maximun_quota}/>
         <p>Space Available: {space_available}</p>
-        <input title="Space Avaible" type="text" placeholder="Space Available" value={space_available} readOnly/>
+        <input title="Space Avaible" type="text"
+        value={space_available} readOnly/>
         <button>Save Change</button>
         <button onClick={onCancel}>Descard Changes</button>
-      </div>
+      </form>
 
 
     </>
