@@ -7,6 +7,7 @@ const useGetAllCourses = () => {
 
     const [courses, setCourses] = useState<Course[]>([])
     const {pageNumber} = useContext(CoursesContext)
+    // eslint-disable-next-line prefer-const
     let limit = 10;
 
     useEffect(()=> {
