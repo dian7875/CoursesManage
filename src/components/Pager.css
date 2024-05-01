@@ -9,6 +9,11 @@
     display: flex;
     cursor: default;
     justify-content: end;
-    align-items: baseline;
-    gap: 10px;
+    gap: 15px;
+}
+.LimitSel{
+    background: transparent;
+}
+.Rotate{
+    transform: scale(-1);
 }
