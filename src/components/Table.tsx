@@ -16,7 +16,7 @@ function Table() {
           <caption>List Of Courses Of University Three Duckling</caption>
           <caption className="cap2">
             <Link to={'/create'}>
-            <button className="text-sm bg-cyan-900 text-white py-1 px-2 rounded-lg shadow-lg">Agregar nuevo</button>
+            <button className="text-xs  bg-cyan-900	 text-white py-2 px-1 rounded-lg shadow-lg">Agregar nuevo</button>
             </Link>
           </caption>
           <thead>
