@@ -57,10 +57,33 @@
 .button-group {
     display: flex;
     justify-content: end;
-    gap: 10px;
+    gap: 30px;
     grid-column: 2; 
     
 }
 
+.sendButton {
+border: 2px solid #3F8C88 ;
+background-color: #3F8C88 ;
+color: #ffffff;
+border-radius: 20px;  
+padding: 0px 30px 0px 30px;
+}
+
+.sendButton:hover {
+  box-shadow: 0px 0px 10px #000000;
+}
+
+.cancelButton{
+  border:2px solid #45939E ;
+  background-color: #ffffff ;
+  color: #063BF7;
+  border-radius: 20px;  
+  padding: 0px 30px 0px 30px;
+}
+
+.cancelButton:hover {
+  box-shadow: 0px 0px 10px #000000;
+}
   
  
