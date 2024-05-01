@@ -6,18 +6,16 @@ import CoursesContext from "../Context/CoursesContext";
 const useGetAllCourses = () => {
 
     const [courses, setCourses] = useState<Course[]>([])
-    const {pageNumber} = useContext(CoursesContext)
-    let limit = 10;
+    const {pageNumber, limit} = useContext(CoursesContext)
 
     useEffect(()=> {
         (
            async function() {
                const coursesFromService = await getAllCourses(pageNumber, limit);
                setCourses(coursesFromService);
-               console.log(coursesFromService.length);
            }
         )()
-     },[pageNumber])
+     },[pageNumber, limit])
   
     return { courses };
 
