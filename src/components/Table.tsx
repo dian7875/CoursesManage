@@ -32,7 +32,7 @@ function Table() {
               <tr key={course.id}>
                 <td>{course.id}</td>
                 <td>{course.name}</td>
-                <td>
+                <td className="columStatus" >
                   {course.status ? (
                     <div className="CourseStatus">Open</div>
                   ) : (

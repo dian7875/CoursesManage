@@ -1,25 +1,22 @@
-import { useContext, useEffect, useState } from "react"
+import { useContext, useEffect } from "react"
 import { getAllCoursesPages } from "../Services/Courses/CourseService"
-import Course from "../types/courses";
 import CoursesContext from "../Context/CoursesContext";
 
 const useGetAllCoursesPages = () => {
-    
-    const [courses,] = useState<Course[]>([])
-    const {maxPageNumber,setMaxPageNumber, limit} = useContext(CoursesContext)
+    const { maxPageNumber, setMaxPageNumber, limit } = useContext(CoursesContext);
 
-    useEffect(()=> {
-        (
-           async function() {
-               const coursesFromService = await getAllCoursesPages();
-               setMaxPageNumber(coursesFromService);
-           }
-        )()
-     },[maxPageNumber,limit])
-  
-    return { courses };
+    useEffect(() => {
 
+        const fetchData = async () => {
+            const coursesFromService = await getAllCoursesPages();
+            const totalPages = Math.ceil(coursesFromService.length / limit);
+            setMaxPageNumber(totalPages);
+        };
 
-}
+        fetchData();
 
-export default useGetAllCoursesPages
+    }, [limit, setMaxPageNumber]);
+    return { maxPageNumber };
+};
+
+export default useGetAllCoursesPages;

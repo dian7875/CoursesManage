@@ -1,4 +1,4 @@
-import { useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import useGetCourseById from "../../Hooks/useGetCourseById";
 
 
@@ -6,6 +6,10 @@ function EditCourse() {
   const { id } = useParams<{ id?: string }>();
   const { course } = id ? useGetCourseById(id) : { course: null };
   const space_available = 5;
+  const navigate = useNavigate();
+  const onCancel = () => {
+    navigate('/');
+  };
   return (
     <>
     <span>Edit Course {course?.course_code}</span>
@@ -22,7 +26,7 @@ function EditCourse() {
         <p>Space Available: {space_available}</p>
         <input title="Space Avaible" type="text" placeholder="Space Available" value={space_available} readOnly/>
         <button>Save Change</button>
-        <button>Descard Changes</button>
+        <button onClick={onCancel}>Descard Changes</button>
       </div>
 
 
