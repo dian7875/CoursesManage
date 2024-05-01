@@ -1,45 +1,75 @@
 import { useNavigate, useParams } from "react-router-dom";
 import useGetCourseById from "../../Hooks/useGetCourseById";
-
+import { editCourse } from "../../Services/Courses/CourseService";
+import { useForm } from "react-hook-form";
+import Course from "../../types/courses";
+import "./Edit.css"
 
 function EditCourse() {
+
   const { id } = useParams<{ id?: string }>();
+
   const { course } = id ? useGetCourseById(id) : { course: null };
+
   const space_available = 5;
+
+  const onSubmit = async (data: any) => {
+    try {
+      await editCourse(data);
+
+    } catch (error) {
+      console.error('Error in create course', error);
+    }
+  };
   const navigate = useNavigate();
   const onCancel = () => {
     navigate('/');
   };
+
+  const { handleSubmit } = useForm<Course>();
+
   return (
     <>
-    <span>Edit Course Id: {course?.id}</span>
-      <form>
-        <p>Course Name:</p>
-        <input title="CourseName" type="text" 
-        value={course?.name} />
-        <p>Course Code:</p>
-        <input title="Course Code" type="text" 
-        value={course?.course_code} />
-        <p>Teacher Name:</p>
-        <input title="Professor Name" type="text" 
-        value={course?.professor} />
-        <p>ClassRoom Number:</p>
-        <input title="Classroom Number" type="text" 
-        value={course?.classroom_number} />
-        <p>Status: {course?.status}</p>
-        <p>Current tuition: {course?.space_available}</p>
-        <input title="CourseName" type="text" 
-        value={course?.name} />
-        <p>Max Quota Available </p>
-        <input title="Macimun Quota of course" type="text"
-        value={course?.maximun_quota}/>
-        <p>Space Available: {space_available}</p>
-        <input title="Space Avaible" type="text"
-        value={space_available} readOnly/>
-        <button>Save Change</button>
-        <button onClick={onCancel}>Descard Changes</button>
-      </form>
-
+      <div className="MainEdit">
+        <p>Edit Course</p>
+        <form className='Form-Edit'
+          onSubmit={handleSubmit(onSubmit)}>
+          <div className="item">
+            <span>Coruse Name </span>
+            <input title="Edit Field" type="text" />
+          </div>
+          <div className="item">
+            <span>Course Code</span>
+            <input title="Edit Field" type="text" />
+          </div>
+          <div className="item">
+            <span>Teachers Name</span>
+            <input title="Edit Field" type="text" />
+          </div>
+          <div className="item">
+            <span>Classroom Number</span>
+            <input title="Edit Field" type="text" />
+          </div>
+          <div className="item">
+            <span>Matricula Actual</span>
+            <input title="Edit Field" type="text" />
+          </div>
+          <div className="item">
+            <span>Maximum Quota</span>
+            <input title="Edit Field" type="text" />
+          </div>
+          <div className="item">
+            <span>Course Status</span>
+            <input title="Edit Field" type="text" />
+          </div>
+          <div className="item">
+            <span>Availanle Space</span>
+            <input title="Edit Field" type="text" />
+          </div>
+          <button type="submit">Send</button>
+          <button type='button' onClick={onCancel}>Cancel</button>
+        </form>
+      </div>
 
     </>
   );

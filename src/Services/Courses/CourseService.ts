@@ -39,6 +39,23 @@ const createCourse = async (data : Course) => {
     return result;
 }
 
+const editCourse = async ({data, id}:{data: Course, id:string}) =>{
+    const response = await fetch(`${urlCoursesBase}/${id}`,{
+        method:'PATCH',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(data)
+    });
+
+    if (!response.ok) {
+        throw new Error('Error edit course');
+    }
+
+    const result = await response.json();
+    return result;
+}
+
 const deleteCourse = async (id: number) => {
     const response = await fetch(`${urlCoursesBase}/${id}`, {
         method: 'DELETE',
@@ -56,5 +73,6 @@ export {
     getCourseById,
     createCourse,
     deleteCourse,
-    getAllCoursesPages
+    getAllCoursesPages,
+    editCourse
 }
