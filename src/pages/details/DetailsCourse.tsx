@@ -16,93 +16,41 @@ function DetailsCourse() {
   return (
     <>
     <div className="MainView">
-    <p>Course Details</p>
+    <p>Course {course?.id} {course?.course_code} Details</p>
       <form className='Form-View'>
        
-          <div className="item">
-              <span>Coruse Id </span>
-              <input
-              readOnly
-                title="View Field"
-                type="text"
-                defaultValue={course?.id || ''}
-              />
-            </div>
-
-
             <div className="item">
               <span>Coruse Name </span>
-              <input
-              readOnly
-                title="View Field"
-                type="text"
-                defaultValue={course?.name || ''}
-              />
+              <b>{course?.name || ''}</b>
             </div>
-
-
-            <div className="item">
-              <span>Course Status:</span>
-              <input
-              readOnly
-                title="View Field"
-                type="text"
-                defaultValue={course?.status ? 'Active' : 'Inactive'}
-              />
-            </div>
-
-
-            <div className="item">
-              <span>Maximum Quota</span>
-              <input
-              readOnly
-                title="View Field"
-                type="text"
-                defaultValue={course?.maximun_quota || ''}
-              />
-            </div>
-
-
-            <div className="item">
-              <span>Space Available</span>
-              <input
-              readOnly
-                title="View Field"
-                type="text"
-                defaultValue={course?.space_available || ''}
-              />
-            </div>
-
-
-            <div className="item">
-              <span>Professor Name:</span>
-              <input
-              readOnly
-                title="View Field"
-                type="text"
-                defaultValue={course?.professor || ''}
-              />
-            </div>
-
-
             <div className="item">
               <span>Course Code</span>
-              <input
-              readOnly
-                title="View Field"
-                type="text"
-                defaultValue={course?.course_code || ''}
-              />
+              <b>{course?.course_code}</b>
             </div>
+            <div className="item">
+              <span>Professor Name:</span>
+             <b>{course?.professor}</b>
+            </div>
+
+
+            <div className="item">
+              <span>Current Registration</span>
+              <b>{course?.current_registration}/{course?.maximun_quota}</b>
+            </div>
+            <div className="item">
+              <span>Course Status</span>
+             <b>{course?.status ? 'Open' : 'Close'}</b>
+            </div>
+            <div className="item">
+              <span>Space Available</span>
+              <b>{course?.space_available}</b>
+            </div>
+
+
            
             <div className="item">
               <span>Classroom Number</span>
-              <input
-              readOnly
-                title="View Field"
-                type="text"
-                defaultValue={course?.classroom_number || ''}
-              />
+             <b>{course?.classroom_number || ''}</b>
             </div>
             <div className='button_group'>
             <ButtonCancel Title='Back' Event={onCancel}/>

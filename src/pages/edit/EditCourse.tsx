@@ -137,7 +137,7 @@ const onSubmit = async (data: Course) => {
             readOnly
             title="Edit Field"
             type="text"
-            {...register('space_available')}
+            
           />
           </div>
           <div className="button-group">
