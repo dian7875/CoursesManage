@@ -24,7 +24,8 @@ if (typeof maximaCapacidad === 'number' && typeof MatriculaActual === 'number') 
 
   const onSubmit = async (data: any) => {
     try {
-      await editCourse(data);
+      data.id = id;
+     await editCourse(data);
     } catch (error) {
       console.error('Error in EDIT course', error);
     }
