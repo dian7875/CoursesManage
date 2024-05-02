@@ -1,5 +1,6 @@
-import { useNavigate, useParams } from 'react-router-dom'
+import { useNavigate, useParams } from 'react-router-dom';
 import useGetCourseById from '../../Hooks/useGetCourseById';
+import './View.css'
 
 function DetailsCourse() {
 
@@ -14,13 +15,10 @@ function DetailsCourse() {
 
   return (
     <>
-    <div className="container">
-    <h1 className=''>Course Details</h1>
-     <div className="form-container">
-      <form className='Form-Class'>
-      
+    <div className="MainView">
+    <p>Course Details</p>
+      <form className='Form-View'>
        
-          <>
           <div className="item">
               <span>Coruse Id </span>
               <input
@@ -28,7 +26,6 @@ function DetailsCourse() {
                 title="View Field"
                 type="text"
                 defaultValue={course?.id || ''}
-                className="input-group input"
               />
             </div>
 
@@ -40,7 +37,6 @@ function DetailsCourse() {
                 title="View Field"
                 type="text"
                 defaultValue={course?.name || ''}
-                className="input-group input"
               />
             </div>
 
@@ -52,19 +48,17 @@ function DetailsCourse() {
                 title="View Field"
                 type="text"
                 defaultValue={course?.status ? 'Active' : 'Inactive'}
-                className="input-group input"
               />
             </div>
 
 
-            <div className="input-group-maximum">
+            <div className="item">
               <span>Maximum Quota</span>
               <input
               readOnly
                 title="View Field"
                 type="text"
                 defaultValue={course?.maximun_quota || ''}
-                className="input-group-maximum input"
               />
             </div>
 
@@ -76,7 +70,6 @@ function DetailsCourse() {
                 title="View Field"
                 type="text"
                 defaultValue={course?.space_available || ''}
-                className="input-group input"
               />
             </div>
 
@@ -88,7 +81,6 @@ function DetailsCourse() {
                 title="View Field"
                 type="text"
                 defaultValue={course?.professor || ''}
-                className="input-group input"
               />
             </div>
 
@@ -100,7 +92,6 @@ function DetailsCourse() {
                 title="View Field"
                 type="text"
                 defaultValue={course?.course_code || ''}
-                className="input-group input"
               />
             </div>
            
@@ -111,18 +102,14 @@ function DetailsCourse() {
                 title="View Field"
                 type="text"
                 defaultValue={course?.classroom_number || ''}
-                className="input-group input"
               />
             </div>
-
-
-
+            <div className='button-group'>
             <button className='cancelButton' type='button' onClick={onCancel}>Back</button>
-
+            </div>
           
-          </>
+
         </form>
-      </div>
       </div>
     </>
   );
