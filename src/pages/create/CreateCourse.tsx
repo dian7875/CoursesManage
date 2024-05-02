@@ -6,25 +6,39 @@ import Course from "../../types/courses";
 import { useNavigate } from "react-router-dom";
 import "./CreateCourse.css";
 import { ButtonAcept, ButtonCancel } from "../../components/ButtonsForms";
+import { useState } from "react";
 function CreateCourse() {
-  const onSubmit = async (data: any) => {
+  const onSubmit = async (data: Course) => {
     try {
-      const spaceAvailable = Math.floor(
-        Math.random() * (Number(data.maximun_quota) + 1)
+      
+      if (typeof data.classroom_number === 'string') {
+        data.classroom_number = parseInt(data.classroom_number) || 0;
+      }
+      if (typeof data.maximun_quota === 'string') {
+        data.maximun_quota = parseInt(data.maximun_quota) || 0;
+      }
+      data.current_registration = Math.floor(
+        Math.random() * (Number(data.maximun_quota))
       );
-
-      const formData = {
-        ...data,
-        space_available: spaceAvailable,
-      };
-
-      await createCourse(formData);
+      data.space_available = data.maximun_quota- data.current_registration;
+      
+      await createCourse(data);
     } catch (error) {
       console.error("Error in create course", error);
     }
   };
+  const [status, setStatus] = useState<boolean>(true);
 
-  const { register, handleSubmit } = useForm<Course>();
+  const toggleStatus = () => {
+    setStatus(!status);
+    if (status) {
+      setValue('status', true)
+    } else {
+      setValue('status', false)
+    }
+  };
+
+  const { register, handleSubmit, setValue } = useForm<Course>();
   const navigate = useNavigate();
 
   const onCancel = () => {
@@ -43,24 +57,28 @@ function CreateCourse() {
       ></link>
 
       <div className="container">
-        <h1 className="add-course">Add course</h1>
+        <p>Add New Course</p>
 
         <form className="Form-Class" onSubmit={handleSubmit(onSubmit)}>
-          <div className="input-group input-field">
+          <div className="input-group">
             <label htmlFor="name">Course Name</label>
-            <input type="text" id="name" {...register("name")} />
+            <input type="text" 
+            id="name" 
+            {...register("name")} />
           </div>
 
-          <div className="input-group input-field">
+          <div className="input-group">
             <label htmlFor="professor">Teacher’s Name</label>
-            <input type="text" id="professor" {...register("professor")} />
+            <input type="text" 
+            id="professor" 
+            {...register("professor")} />
           </div>
 
-          <div className="input-group input-field">
+          <div className="input-group">
             <label htmlFor="course_code"> Course Code</label>
             <input type="text" id="course_code" {...register("course_code")} />
           </div>
-          <div className="input-group input-field">
+          <div className="input-group">
             <label htmlFor="classroom_number">Classroom Number</label>
             <input
               type="number"
@@ -69,12 +87,20 @@ function CreateCourse() {
             />
           </div>
 
-          <div className="input-group input-field">
+          <div className="input-group">
             <label htmlFor="status">Course Status</label>
-            <input type="checkbox" id="status" {...register("status")} />
+            <label className="toggle">
+              <input
+                className="status"
+                type="checkbox"
+                {...register('status')}
+                onChange={toggleStatus}
+              />
+              <span className="slider"></span>
+            </label>
           </div>
 
-          <div className="input-group input-field">
+          <div className="input-group">
             <label htmlFor="maximun_quota">Maximum Quota</label>
             <input
               type="number"

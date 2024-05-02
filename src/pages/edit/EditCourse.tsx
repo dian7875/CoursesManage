@@ -5,7 +5,8 @@ import { useForm } from "react-hook-form";
 import Course from "../../types/courses";
 import {ButtonAcept, ButtonCancel} from '../../components/ButtonsForms';
 import "./Edit.css"
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
+
 
 function EditCourse() {
 
@@ -38,7 +39,6 @@ const handleCurrentRegistrationChange = (e: React.ChangeEvent<HTMLInputElement>)
 
 const handleMaximumQuotaChange = (e: React.ChangeEvent<HTMLInputElement>) => {
   const maximumQuota = parseInt(e.target.value) || 0;
-  console.log(maximumQuota)
   const currentRegistration = watch('current_registration');
   const spaceAvailable = maximumQuota - currentRegistration;
   setValue('space_available', spaceAvailable);
@@ -58,6 +58,17 @@ const onSubmit = async (data: Course) => {
       await editCourse({ data });
   } catch (error) {
       console.error('Error al editar el curso', error);
+  }
+};
+
+const [status, setStatus] = useState<boolean>();
+
+const toggleStatus = () => {
+  setStatus(!status);
+  if(status){
+    setValue('status', true)
+  }else{
+    setValue('status', false)
   }
 };
 
@@ -124,20 +135,24 @@ const onSubmit = async (data: Course) => {
           />
           </div>
           <div className="item">
-            <span>Course Status</span>
-            <input
-            title="Edit Field"
-            type="checkbox"
-            {...register('status')}
-          />
-          </div>
+      <span>Course Status</span>
+      <label className="toggle">
+        <input
+          className="status"
+          type="checkbox"
+          {...register('status')}
+          onChange={toggleStatus}
+        />
+        <span className="slider round"></span>
+      </label>
+    </div>
           <div className="item">
             <span>Available Space</span>
             <input
             readOnly
             title="Edit Field"
             type="text"
-            
+            {...register('space_available')}
           />
           </div>
           <div className="button-group">
