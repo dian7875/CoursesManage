@@ -1,16 +1,22 @@
-.container {
+.body-Form {
+  min-width: 100%;
+  min-height: 93lvh;
+  display: grid;
+  text-align: start;
+  grid-template-rows: 4% 65%;
   padding-left: 20%;
   padding-top: 10%;
-  text-align: start;
   }
-.container p{
+.body-Form p{
   margin-left: 1%;
-  margin-bottom: 1%;
   font-size: x-large;
   font-weight: bold;
   }
-.Form-Class {
-  height: 45vh;
+.Form-Style {
+  grid-row: 2/3 ;
+  width: 80%;
+  height: 105%;
+  margin-top: 1%;
   border-radius: 20px;
   box-shadow: 0px 0px 100px 0px #070707;
   box-shadow: -5px 0 5px #779FA6;
@@ -20,21 +26,21 @@
 }
 
 .input-group{
-  margin: 5%;
+  width: auto;
+  margin: 5% 5% 5% 5%;
   display: flex;
   flex-direction: column;
-  gap: 5px;
 }
-.input-group input{
+.Form-Style input{
+  height: 45%;
   box-shadow: 0px 0px 2px 0px #386398;
-  width:80%;
   border-radius: 5px;
 }
-.input-group label{
+.input-group label span{
   color: grey;
 }
 
-.input-group:focus-within label{
+.input-group:focus-within label span{
   color: #000000;
 }
 
@@ -43,25 +49,71 @@
   border: 1px solid #063BF7;
   box-shadow: 0 0 5px rgba(0,0,0,0.1);
 }
-
 .button-group {
   display: flex;
+  height: 70%;
   justify-content: end;
   gap: 20px;
-  grid-column: 2;
+  grid-column: 2; 
+  padding-right: 3rem;
+
+}
+.button-group2{
+  display: flex;
+  height: 100%;
+  padding-bottom: 5%;
+  justify-content: end;
+  gap: 20px;
+  grid-column: 2; 
   padding-right: 3rem;
 }
-
-
 
 input[type="number"]::-webkit-inner-spin-button,
 input[type="number"]::-webkit-outer-spin-button {
   -webkit-appearance: none;
   margin: 0;
 }
+  
+.status {
+  display: none;
+}
+.toggle {
+  position: relative;
+  display: inline-block;
+  width: 25%;
+  height: 34px;
+}
+.slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #a01a1a;
+  -webkit-transition: .4s;
+  transition: .4s;
+  border-radius: 34px;
+}
 
+.slider:after {
+  content: "Close";
+  color: white;
+  display: block;
+  position: absolute;
+  transform: translate(-50%, -50%);
+  top: 50%;
+  left: 50%;
+  font-size: 14px;
+}
 
-
+.status:checked + .slider {
+  background-color: #5f93be;
+}
+.status:checked + .slider:after {
+  content: "Open";
+}
+ 
 @media (max-width: 599px) and (min-width: 360px) {
   .Form-Class {
       grid-template-columns: repeat(1, 1fr);

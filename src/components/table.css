@@ -38,17 +38,8 @@
   .CourseStatus {
     color: #4F5AED;
     background-color: #dcdeed;
-    width: 45%;
-    height: 20px;
-    border-radius: 30px;
-  }
-
-  .ClosedCoruse {
-    color: #4F5AED;
-    text-align: center;
-    background-color: #dcdeed;
-    width: 45%;
-    height: 20px;
+    width: 100px;
+    margin-left: 25%;
     border-radius: 30px;
   }
   .main {

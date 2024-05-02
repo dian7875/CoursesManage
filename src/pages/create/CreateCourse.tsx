@@ -4,7 +4,7 @@ import { useForm } from "react-hook-form";
 import { createCourse } from "../../Services/Courses/CourseService";
 import Course from "../../types/courses";
 import { useNavigate } from "react-router-dom";
-import "./CreateCourse.css";
+import "../Forms.css";
 import { ButtonAcept, ButtonCancel } from "../../components/ButtonsForms";
 import { useState } from "react";
 function CreateCourse() {
@@ -56,10 +56,10 @@ function CreateCourse() {
         rel="stylesheet"
       ></link>
 
-      <div className="container">
+      <div className="body-Form">
         <p>Add New Course</p>
 
-        <form className="Form-Class" onSubmit={handleSubmit(onSubmit)}>
+        <form className="Form-Style" onSubmit={handleSubmit(onSubmit)}>
           <div className="input-group">
             <label htmlFor="name">Course Name</label>
             <input type="text" 

@@ -2,4 +2,6 @@
     display: flex;
     justify-content: start;
     background-color: #779FA6;
+    align-items: center;
+    font-size: x-large;
 }
