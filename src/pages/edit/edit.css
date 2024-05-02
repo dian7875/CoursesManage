@@ -1,6 +1,6 @@
 .Edit-Form {
     min-width: 100%;
-    min-height: 100lvh;
+    min-height: 75lvh;
     display: grid;
     text-align: start;
     grid-template-rows: 4% 65%;
@@ -57,4 +57,17 @@
     gap: 20px;
     grid-column: 2;
     padding-right: 3rem;
+}
+
+@media (max-width: 1264px){
+    .Edit-Form {
+        min-width: 100%;
+        min-height: 100lvh;
+        display: grid;
+        text-align: start;
+        grid-template-rows: 4% 65%;
+        padding-left: 20%;
+        padding-top: 5%;
+    }
+
 }
