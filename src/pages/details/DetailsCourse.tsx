@@ -107,8 +107,6 @@ function DetailsCourse() {
             <div className='button_group'>
             <ButtonCancel Title='Back' Event={onCancel}/>
             </div>
-          
-
         </form>
       </div>
     </>
