@@ -1,6 +1,6 @@
 .Edit-Form {
     min-width: 100%;
-    min-height: 90lvh;
+    min-height: 100lvh;
     display: grid;
     text-align: start;
     grid-template-rows: 4% 65%;
