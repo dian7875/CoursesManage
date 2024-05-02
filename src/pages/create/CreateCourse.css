@@ -114,7 +114,7 @@
     justify-content: end;
     gap: 20px;
     grid-column: 2; 
-    margin-right: 2rem;
+    padding-right: 3rem;
   
    }
 
