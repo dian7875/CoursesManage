@@ -5,9 +5,9 @@
     flex-direction: column;
     align-items: flex-start;
     justify-content: flex-start;
-    min-height: 40vh;
-  margin-top: 6rem;
-    margin-left: 8%;
+    padding-left: 20%;
+    padding-top: 1%;
+    padding-right: 0;
   }
   
   .add-course {

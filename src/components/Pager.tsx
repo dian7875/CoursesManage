@@ -1,7 +1,8 @@
-import { useContext } from "react";
+import { useContext, useEffect } from "react";
 import "./Pager.css"
 import CoursesContext from "../Context/CoursesContext";
 import useGetAllCoursesPages from "../Hooks/useGetAllCoursesPages";
+import { set } from "react-hook-form";
 const Pager = () => {
 
   const { pageNumber, setPageNumber, limit, setLimit } = useContext(CoursesContext)
@@ -22,7 +23,11 @@ const Pager = () => {
       alert("Che parala no hay mas")
     }
   };
-
+  useEffect(() => {
+    if(pageNumber>maxPageNumber){
+      setPageNumber(maxPageNumber)
+    }
+}, [maxPageNumber]);
   const changeLimit = (event: React.ChangeEvent<HTMLSelectElement>) => {
     const value = parseInt(event.target.value);
     setLimit(value);
