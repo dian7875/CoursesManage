@@ -41,7 +41,7 @@ const createCourse = async (data : Course) => {
 
 
 const editCourse = async ({data}:{data: Course}) =>{
-    const response = await fetch(`${urlCoursesBase}/${40}`,{
+    const response = await fetch(`${urlCoursesBase}/${data.id}`,{
         method:'PUT',
         headers: {
             'Content-Type': 'application/json'

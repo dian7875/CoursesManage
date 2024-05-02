@@ -104,11 +104,9 @@ function DetailsCourse() {
                 defaultValue={course?.classroom_number || ''}
               />
             </div>
-            <div className='button-group'>
+            <div className='button_group'>
             <button className='cancelButton' type='button' onClick={onCancel}>Back</button>
             </div>
-          
-
         </form>
       </div>
     </>
