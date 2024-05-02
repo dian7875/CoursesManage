@@ -30,21 +30,10 @@
   flex-direction: column;
   gap: 5px;
 }
-.button-group {
+.button_group{
+  display: flex;
   justify-content: center;
   gap: 20px;
   width: 100%;
-  grid-column: 1/3;
- }
-.cancelButton{
-  border:2px solid #45939E ;
-  background-color: #ffffff ;
-  color: #063BF7;
-  border-radius: 20px;  
-  padding: 0px 30px 0px 30px;
+  grid-column:1/3;
 }
-
-.cancelButton:hover {
-  box-shadow: 0px 0px 10px #000000;
-}
-  
