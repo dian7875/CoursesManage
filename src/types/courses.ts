@@ -8,7 +8,8 @@ type Course = {
     maximun_quota: number,
     professor: string,
     course_code: string,
-    classroom_number: number
+    classroom_number: number,
+    current_registration: number
 
   }
  
