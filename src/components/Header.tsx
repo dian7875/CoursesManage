@@ -5,8 +5,8 @@ const Header = () => {
   return (
     <>
       <div className="Header">
-        <img width={70} src={image} alt="" />
-        <p>University Three Duckling</p>
+        <img width={90} src={image} alt="" />
+        <p style={{ cursor: 'default' }}>University Three Duckling</p>
       </div>
       <Outlet />
     </>

@@ -4,7 +4,7 @@ import { editCourse } from "../../Services/Courses/CourseService";
 import { useForm } from "react-hook-form";
 import Course from "../../types/courses";
 import {ButtonAcept, ButtonCancel} from '../../components/ButtonsForms';
-import "./Edit.css"
+import "../Forms.css"
 import { useEffect, useState } from "react";
 
 
@@ -46,6 +46,8 @@ const handleMaximumQuotaChange = (e: React.ChangeEvent<HTMLInputElement>) => {
 };
 const onSubmit = async (data: Course) => {
   try {
+
+    
     if (typeof data.current_registration === 'string') {
       data.current_registration = parseInt(data.current_registration) || 0;
     }
@@ -80,11 +82,11 @@ const toggleStatus = () => {
 
   return (
     <>
-      <div className="MainEdit">
+      <div className="body-Form">
         <p>Edit Course {course?.id}{course?.course_code}</p>
-        <form className='Form-Edit'
+        <form className='Form-Style'
           onSubmit={handleSubmit(onSubmit)}>
-          <div className="item">
+          <div className="input-group">
             <span>Coruse Name </span>
             <input
             title="Edit Field"
@@ -92,7 +94,7 @@ const toggleStatus = () => {
             {...register('name')}
           />
           </div>
-          <div className="item">
+          <div className="input-group">
             <span>Course Code</span>
             <input
             title="Edit Field"
@@ -100,7 +102,7 @@ const toggleStatus = () => {
             {...register('course_code')}
           />
           </div>
-          <div className="item">
+          <div className="input-group">
             <span>Teachers Name</span>
             <input
             title="Edit Field"
@@ -108,7 +110,7 @@ const toggleStatus = () => {
             {...register('professor')}
           />
           </div>
-          <div className="item">
+          <div className="input-group">
             <span>Classroom Number</span>
             <input
             title="Edit Field"
@@ -116,7 +118,7 @@ const toggleStatus = () => {
             {...register('classroom_number')}
           />
           </div>
-          <div className="item">
+          <div className="input-group">
             <span>Matricula Actual</span>
             <input
             title="Edit Field"
@@ -125,7 +127,7 @@ const toggleStatus = () => {
             onChange={handleCurrentRegistrationChange}
           />
           </div>
-          <div className="item">
+          <div className="input-group">
             <span>Maximum Quota</span>
             <input
             title="Edit Field"
@@ -134,7 +136,7 @@ const toggleStatus = () => {
             onChange={handleMaximumQuotaChange}
           />
           </div>
-          <div className="item">
+          <div className="input-group">
       <span>Course Status</span>
       <label className="toggle">
         <input
@@ -146,7 +148,7 @@ const toggleStatus = () => {
         <span className="slider round"></span>
       </label>
     </div>
-          <div className="item">
+          <div className="input-group">
             <span>Available Space</span>
             <input
             readOnly
@@ -155,7 +157,7 @@ const toggleStatus = () => {
             {...register('space_available')}
           />
           </div>
-          <div className="button-group">
+          <div className="button-group2">
           <ButtonCancel Title='Cancel' Event={onCancel}/>
           <ButtonAcept Title='Send'/>
           </div>

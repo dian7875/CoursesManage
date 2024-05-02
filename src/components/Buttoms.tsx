@@ -6,17 +6,17 @@ const Buttoms = ({ id }: { id: string }) => {
     <>
       <div className="flex gap-2 mt-3">
         <Link to={`/view/${id}`}>
-          <button className="text-xs bg-sky-600 text-white px-2 py-1 rounded-lg shadow-lg">
+          <button className="hover:bg-sky-700 text-sm bg-sky-600 text-white px-2 py-1 rounded-lg shadow-lg">
             View
           </button>
         </Link>
         <Link to={`/edit/${id}`}>
-          <button className="text-xs bg-cyan-800 text-white px-2 py-1 rounded-lg shadow-lg">
+          <button className="hover:bg-cyan-600 text-sm bg-cyan-800 text-white px-2 py-1 rounded-lg shadow-lg">
             Edit
           </button>
         </Link>
 
-        <button className="text-xs bg-neutral-600 text-white px-2 py-1 rounded-lg shadow-lg">
+        <button className="hover:bg-red-700 text-sm bg-neutral-600 text-white px-2 py-1 rounded-lg shadow-lg">
           Delete
         </button>
       </div>
