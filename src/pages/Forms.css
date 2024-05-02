@@ -25,6 +25,7 @@
 }
 
 .input-group{
+  position: relative;
   width: auto;
   margin: 5% 5% 5% 5%;
   display: flex;
@@ -104,6 +105,31 @@ input[type="number"]::-webkit-outer-spin-button {
   top: 50%;
   left: 50%;
   font-size: 14px;
+}
+
+.error-message .input-group input, .error-message .input-group select, .error-message .c-choice-option{ 
+  background: #fff0f4; 
+  color: #c51244;
+}
+.error-message .input-group input, .error-message .input-group select{ 
+  border: 1px solid #c51244 !important; 
+}
+.error-message {
+  padding: 0 !important;
+  font-size: 15px !important;
+  font-weight: normal;
+  line-height: 1.2;
+  position: absolute;
+  color: rgb(234, 33, 33);
+  top: 50px; 
+
+  left: 0;
+  display: inline-block !important;
+  margin-top: 10px;
+}
+
+.input-group label:after{
+  color: #c51244 !important;
 }
 
 .status:checked + .slider {
