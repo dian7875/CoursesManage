@@ -1,51 +1,118 @@
-import { useParams } from 'react-router-dom'
-import useGetUserById from '../../Hooks/useGetCourseById';
+import { useNavigate, useParams } from 'react-router-dom';
+import useGetCourseById from '../../Hooks/useGetCourseById';
+import './View.css'
+
 function DetailsCourse() {
-  
-  let {id} = useParams(); 
-  
-  useGetUserById("1");
 
+  const { id } = useParams<{ id?: string }>();
+  const { course } = id ? useGetCourseById(id) : { course: null };
 
-  const handleNextClick = () => {
-    console.log(id)
+  const navigate = useNavigate();
+
+  const onCancel = () => {
+    navigate('/');
   };
-  
 
-  return (      
+  return (
     <>
- <h1 className='add-course'>Add Course</h1>
-    <div className="form-container">
-      <form className='Form-Class'>
-        <label htmlFor="name">Course Name</label>
-        <input type="text" id='name'/>
-
-        <label htmlFor="status">Course Status</label>
-        <input type="checkbox" id='status'/>
-
-        <label htmlFor="maximun_quota">Maximum Quota</label>
-        <input onChange={handleNextClick} type="number" id='maximun_quota'  />
-
-
-        <label htmlFor="space_available">Space Available</label>
-        <input type="number" id='space_available'  readOnly />
+    <div className="MainView">
+    <p>Course Details</p>
+      <form className='Form-View'>
+       
+          <div className="item">
+              <span>Coruse Id </span>
+              <input
+              readOnly
+                title="View Field"
+                type="text"
+                defaultValue={course?.id || ''}
+              />
+            </div>
 
 
-        <label htmlFor="professor">Professor Name</label>
-        <input type="text" id='professor' />
+            <div className="item">
+              <span>Coruse Name </span>
+              <input
+              readOnly
+                title="View Field"
+                type="text"
+                defaultValue={course?.name || ''}
+              />
+            </div>
 
-        <label htmlFor="course_code"> Course Code</label>
-        <input type="text" id='course_code'/>
 
-        <label htmlFor="classroom_number">Classroom Number</label>
-        <input type="number" id='classroom_number'/>
+            <div className="item">
+              <span>Course Status:</span>
+              <input
+              readOnly
+                title="View Field"
+                type="text"
+                defaultValue={course?.status ? 'Active' : 'Inactive'}
+              />
+            </div>
 
-        <button type="submit">Send</button>
-        <button type='button'>Cancel</button>
-      </form>
-    </div>
+
+            <div className="item">
+              <span>Maximum Quota</span>
+              <input
+              readOnly
+                title="View Field"
+                type="text"
+                defaultValue={course?.maximun_quota || ''}
+              />
+            </div>
+
+
+            <div className="item">
+              <span>Space Available</span>
+              <input
+              readOnly
+                title="View Field"
+                type="text"
+                defaultValue={course?.space_available || ''}
+              />
+            </div>
+
+
+            <div className="item">
+              <span>Professor Name:</span>
+              <input
+              readOnly
+                title="View Field"
+                type="text"
+                defaultValue={course?.professor || ''}
+              />
+            </div>
+
+
+            <div className="item">
+              <span>Course Code</span>
+              <input
+              readOnly
+                title="View Field"
+                type="text"
+                defaultValue={course?.course_code || ''}
+              />
+            </div>
+           
+            <div className="item">
+              <span>Classroom Number</span>
+              <input
+              readOnly
+                title="View Field"
+                type="text"
+                defaultValue={course?.classroom_number || ''}
+              />
+            </div>
+            <div className='button-group'>
+            <button className='cancelButton' type='button' onClick={onCancel}>Back</button>
+            </div>
+          
+
+        </form>
+      </div>
     </>
-  )
+  );
 }
 
 export default DetailsCourse
