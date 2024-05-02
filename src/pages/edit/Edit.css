@@ -30,3 +30,11 @@
     flex-direction: column;
     gap: 5px;
 }
+.button-group {
+    display: flex;
+    justify-content: end;
+    gap: 20px;
+    grid-column: 2; 
+    padding-right: 3rem;
+  
+   }

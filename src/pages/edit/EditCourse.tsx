@@ -3,6 +3,7 @@ import useGetCourseById from "../../Hooks/useGetCourseById";
 import { editCourse } from "../../Services/Courses/CourseService";
 import { useForm } from "react-hook-form";
 import Course from "../../types/courses";
+import {ButtonAcept, ButtonCancel} from '../../components/ButtonsForms';
 import "./Edit.css"
 import { useEffect } from "react";
 
@@ -116,8 +117,12 @@ const onSubmit = async (data: Course) => {
             <span>Available Space</span>
             <input readOnly title="Edit Field" type="text" value={space_available}/>
           </div>
-          <button type="submit">Send</button>
-          <button type='button' onClick={onCancel}>Cancel</button>
+          <div className="button-group">
+          <ButtonCancel Title='Cancel' Event={onCancel}/>
+          <ButtonAcept Title='Send'/>
+          </div>
+          
+
         </form>
       </div>
 

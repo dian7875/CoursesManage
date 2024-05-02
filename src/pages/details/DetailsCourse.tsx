@@ -1,7 +1,7 @@
 import { useNavigate, useParams } from 'react-router-dom';
 import useGetCourseById from '../../Hooks/useGetCourseById';
 import './View.css'
-
+import { ButtonCancel} from '../../components/ButtonsForms';
 function DetailsCourse() {
 
   const { id } = useParams<{ id?: string }>();
@@ -105,7 +105,7 @@ function DetailsCourse() {
               />
             </div>
             <div className='button_group'>
-            <button className='cancelButton' type='button' onClick={onCancel}>Back</button>
+            <ButtonCancel Title='Back' Event={onCancel}/>
             </div>
         </form>
       </div>
