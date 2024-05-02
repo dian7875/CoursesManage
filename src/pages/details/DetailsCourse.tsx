@@ -1,7 +1,7 @@
 import { useNavigate, useParams } from 'react-router-dom';
 import useGetCourseById from '../../Hooks/useGetCourseById';
 import './View.css'
-import { ButtonCancel} from '../../components/ButtonsForms';
+import { ButtonCancel } from '../../components/ButtonsForms';
 function DetailsCourse() {
 
   const { id } = useParams<{ id?: string }>();
@@ -13,100 +13,47 @@ function DetailsCourse() {
     navigate('/');
   };
 
+
   return (
     <>
-    <div className="MainView">
-    <p>Course Details</p>
-      <form className='Form-View'>
-       
-          <div className="item">
-              <span>Coruse Id </span>
-              <input
-              readOnly
-                title="View Field"
-                type="text"
-                defaultValue={course?.id || ''}
-              />
-            </div>
+      <div className="MainView">
+        <p>Course {course?.id} {course?.course_code} Details</p>
+        <form className='Form-View'>
+
+          <div className="view">
+            <span>Coruse Name </span>
+            <b>{course?.name || ''}</b>
+          </div>
+          <div className="view">
+            <span>Course Code</span>
+            <b>{course?.course_code}</b>
+          </div>
+          <div className="view">
+            <span>Professor Name:</span>
+            <b>{course?.professor}</b>
+          </div>
 
 
-            <div className="item">
-              <span>Coruse Name </span>
-              <input
-              readOnly
-                title="View Field"
-                type="text"
-                defaultValue={course?.name || ''}
-              />
-            </div>
+          <div className="view">
+            <span>Current Registration</span>
+            <b>{course?.current_registration}/{course?.maximun_quota}</b>
+          </div>
+          <div className="view">
+            <span>Course Status</span>
+            <b>{course?.status ? 'Open' : 'Close'}</b>
+          </div>
+          <div className="view">
+            <span>Space Available</span>
+            <b>{course?.space_available}</b>
+          </div>
 
-
-            <div className="item">
-              <span>Course Status:</span>
-              <input
-              readOnly
-                title="View Field"
-                type="text"
-                defaultValue={course?.status ? 'Active' : 'Inactive'}
-              />
-            </div>
-
-
-            <div className="item">
-              <span>Maximum Quota</span>
-              <input
-              readOnly
-                title="View Field"
-                type="text"
-                defaultValue={course?.maximun_quota || ''}
-              />
-            </div>
-
-
-            <div className="item">
-              <span>Space Available</span>
-              <input
-              readOnly
-                title="View Field"
-                type="text"
-                defaultValue={course?.space_available || ''}
-              />
-            </div>
-
-
-            <div className="item">
-              <span>Professor Name:</span>
-              <input
-              readOnly
-                title="View Field"
-                type="text"
-                defaultValue={course?.professor || ''}
-              />
-            </div>
-
-
-            <div className="item">
-              <span>Course Code</span>
-              <input
-              readOnly
-                title="View Field"
-                type="text"
-                defaultValue={course?.course_code || ''}
-              />
-            </div>
-           
-            <div className="item">
-              <span>Classroom Number</span>
-              <input
-              readOnly
-                title="View Field"
-                type="text"
-                defaultValue={course?.classroom_number || ''}
-              />
-            </div>
-            <div className='button_group'>
-            <ButtonCancel Title='Back' Event={onCancel}/>
-            </div>
+          <div className="view">
+            <span>Classroom Number</span>
+            <b>{course?.classroom_number || ''}</b>
+          </div>
+          <div className='button_group'>
+            <ButtonCancel Title='Back' Event={onCancel} />
+          </div>
         </form>
       </div>
     </>
