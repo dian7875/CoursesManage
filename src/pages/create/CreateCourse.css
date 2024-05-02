@@ -15,7 +15,7 @@
     font-size: 2rem;
     font-weight: bold;
     color: #000000;
-    margin-bottom: 2rem;
+    margin-bottom: 1.3rem;
 
   }
   
@@ -119,5 +119,60 @@
    }
 
 
+   input[type="number"]::-webkit-inner-spin-button,
+   input[type="number"]::-webkit-outer-spin-button {
+     -webkit-appearance: none;
+     margin: 0;
+   }
+   
 
+   @media (max-width: 599px) and (min-width: 360px) {
+  
+    .Form-Class {
+      display: grid;
+      grid-template-columns: repeat(1, 1fr);
+      gap: 10px; 
+      width: 80%;
+      background-color: whitesmoke;
+      border-radius: 14px;
+      box-shadow: -7px 7px 1px 0px rgb(119, 159, 166);
+      margin-bottom: 6rem; 
+  }
+  
+  
+  
+  
+  .input-group input {
+    flex-grow: 1;
+      width: 50%;
+      padding: 1%;
+      border-radius: 7px;
+      border: 1px solid #063BF7;
+      margin-bottom: 3.5rem;
+      
+  }
+  
+  .input-group label {
+    font-family: 'Inter', sans-serif;
+    font-weight: normal;
+    width: 50%;
+    text-align: left; 
+    font-size: 10px;
+    color: gray; 
+  }
+  
+  .input-group-maximum input {
+    width: 100%; 
+    padding: 5px;  
+  }
+  
+  .input-group-maximum label {
+    font-size: 16px; 
+  }
+  
+  .Form-Class .button-group {
+    display: flex;
+    justify-content: center;
+  }
+  }
  
