@@ -1,0 +1,50 @@
+.MainView{
+  padding-left: 20%;
+  padding-top: 10%;
+  padding-right: 20%;
+  text-align: start;
+}
+.MainView p{
+  margin-left: 1%;
+  margin-bottom: 1%;
+  font-size: x-large;
+  font-weight: bold;
+}
+.Form-View{
+  border-radius: 20px;
+  box-shadow: 0px 0px 100px 0px #070707;
+  box-shadow: -5px 0 5px #779FA6;
+  display: grid;
+  grid-template-columns: 50% 50%;
+  background-color: whitesmoke;
+}
+
+.Form-View input{
+  box-shadow: 0px 0px 2px 0px #386398;
+  width:80%;
+  border-radius: 5px;
+}
+.item{
+  margin: 5%;
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+.button-group {
+  justify-content: center;
+  gap: 20px;
+  width: 100%;
+  grid-column: 1/3;
+ }
+.cancelButton{
+  border:2px solid #45939E ;
+  background-color: #ffffff ;
+  color: #063BF7;
+  border-radius: 20px;  
+  padding: 0px 30px 0px 30px;
+}
+
+.cancelButton:hover {
+  box-shadow: 0px 0px 10px #000000;
+}
+  
