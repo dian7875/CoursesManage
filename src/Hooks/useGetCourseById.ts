@@ -10,8 +10,9 @@ const useGetCourseById = (id: string) => {
     useEffect(() => {
         (
            async function() {
-               const course = await getCourseById(id);
-               setCourse(course);
+               const courseObjet = await getCourseById(id);
+               setCourse(courseObjet);
+
            }
         )()
      },[id])
@@ -20,3 +21,4 @@ const useGetCourseById = (id: string) => {
 }
 
 export default useGetCourseById
+

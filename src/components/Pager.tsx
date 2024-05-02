@@ -1,35 +1,46 @@
 import { useContext } from "react";
 import "./Pager.css"
 import CoursesContext from "../Context/CoursesContext";
+import useGetAllCoursesPages from "../Hooks/useGetAllCoursesPages";
 const Pager = () => {
 
-  const { pageNumber, setPageNumber } = useContext(CoursesContext)
-  const result = 10;
+  const { pageNumber, setPageNumber, limit, setLimit } = useContext(CoursesContext)
+  const { maxPageNumber } = useGetAllCoursesPages();
 
   const handlePrevClick = () => {
     if (pageNumber > 1) {
       setPageNumber(pageNumber - 1);
+    } else{
+      alert('Che no te sabes los numeritos')
     }
   };
-
 
   const handleNextClick = () => {
-    if (pageNumber < 10) {
+    if (pageNumber < maxPageNumber) {
       setPageNumber(pageNumber + 1);
+    }else{
+      alert("Che parala no hay mas")
     }
   };
 
-
+  const changeLimit = (event: React.ChangeEvent<HTMLSelectElement>) => {
+    const value = parseInt(event.target.value);
+    setLimit(value);
+  };
 
   return (
     <>
       <span className='Pager'>
         <span>Rows per page:
-          <select name="" id=""></select>
+        <select className="LimitSel" title="Pagination" value={limit} onChange={changeLimit}>
+            <option value="5">5</option>
+            <option value="10">10</option>
+            <option value="15">15</option>
+          </select>
           <button className='Btn' title='prev' onClick={handlePrevClick}>
-            <img width={15} src="https://cdn-icons-png.flaticon.com/128/151/151846.png" alt="" />
+          <img className="Rotate" width={15} src="https://cdn-icons-png.flaticon.com/128/271/271228.png" alt="" />
           </button>
-          {pageNumber}/{result}</span>
+          {pageNumber}/{maxPageNumber}</span>
         <button className='Btn' title='next' onClick={handleNextClick}>
           <img width={15} src="https://cdn-icons-png.flaticon.com/128/271/271228.png" alt="" />
         </button>
