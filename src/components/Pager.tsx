@@ -35,7 +35,7 @@ const Pager = () => {
   return (
     <>
       <span className='Pager'>
-        <span>Rows per page:
+        <span>Courses per page:
         <select className="LimitSel" title="Pagination" value={limit} onChange={changeLimit}>
             <option value="5">5</option>
             <option value="10">10</option>
