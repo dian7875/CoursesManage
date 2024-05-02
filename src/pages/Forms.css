@@ -15,7 +15,7 @@
 .Form-Style {
   grid-row: 2/3 ;
   width: 80%;
-  height: 105%;
+  height: 120%;
   margin-top: 1%;
   border-radius: 20px;
   box-shadow: -7px 7px 1px 0px rgb(119, 159, 166);
@@ -56,10 +56,12 @@
   gap: 20px;
   grid-column: 2; 
   padding-right: 3rem;
+  position: relative;
 
 }
 .button-group2{
   display: flex;
+  position: relative;
   height: 100%;
   padding-bottom: 5%;
   justify-content: end;
