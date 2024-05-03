@@ -27,7 +27,6 @@
 }
 
 .Edit-Style input {
-    height: 80%;
     box-shadow: 0px 0px 2px 0px #386398;
     border-radius: 5px;
 }
@@ -50,17 +49,37 @@
 
 .button-group2 {
     display: flex;
-    position: relative;
-    height: 100%;
+    height: 50%;
+    margin-top: 11%;
     padding-bottom: 5%;
     justify-content: end;
     gap: 20px;
     grid-column: 2;
     padding-right: 3rem;
 }
+.matriculaStatus span{
+    color: gray;
+}
+.matriculaStatus{
+    padding-top: 5%;
+padding-left: 5%;
+}
 
-@media (max-width: 1264px){
+.matriculaStatus input{
+    width: 25%;
+}
+.matriculaStatus:focus-within span{
+    color: #000000;
+}
+.EditField input{
+    margin-right: 2%;
+}
+.EditField input:last-child{
+    margin-left: 2%;
+}
+@media (max-width: 1280px){
     .Edit-Form {
+        background-color: red;
         min-width: 100%;
         min-height: 100lvh;
         display: grid;

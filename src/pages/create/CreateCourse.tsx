@@ -6,7 +6,7 @@ import { zodResolver } from "@hookform/resolvers/zod";
 import { createCourse } from "../../Services/Courses/CourseService";
 import Course from "../../types/courses";
 import { useNavigate } from "react-router-dom";
-import "../Forms.css";
+import "./Forms.css";
 import { ButtonAcept, ButtonCancel } from "../../components/ButtonsForms";
 import { useState } from "react";
 import courseSchema from "../../validations/courseSchema";
