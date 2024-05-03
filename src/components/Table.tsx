@@ -1,6 +1,5 @@
 import { Link } from "react-router-dom";
 import useGetAllCourses from "../Hooks/useGetAllCourses";
-import Course from "../types/courses";
 import Pager from "./Pager";
 import "./table.css";
 import Buttoms from "./Buttoms";
