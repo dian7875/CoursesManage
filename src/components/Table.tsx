@@ -10,12 +10,7 @@ import { useEffect, useState } from "react";
 
 function Table() {
 
-  const audioRef = useRef<HTMLAudioElement>(null);
-  useEffect(() => {
-    if (audioRef.current) {
-      audioRef.current.play();
-    }
-  }, []);
+
   const { courses }: { courses: Course[] } = useGetAllCourses();
   const [filteredCourses, setFilteredCourses] = useState(courses);
 
@@ -27,8 +22,6 @@ function Table() {
   return (
     <>
       <audio className="hidden"
-      ref={audioRef}
-      src={audioFile}
       autoPlay
       controls/>
       <div className="main">
@@ -38,7 +31,7 @@ function Table() {
        
           <caption className="cap2">
             <Link to={'/create'}>
-              <button onClick={audioRef.current?.play} className="text-sm hover:bg-cyan-700 bg-cyan-900	 text-white py-2 px-1 rounded-lg shadow-lg">Agregar nuevo</button>
+              <button  className="text-sm hover:bg-cyan-700 bg-cyan-900	 text-white py-2 px-1 rounded-lg shadow-lg">Agregar nuevo</button>
             </Link>
           </caption>
           <thead>
