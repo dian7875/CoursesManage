@@ -19,9 +19,8 @@ function DetailsCourse() {
       <div className="MainView">
         <p>Course {course?.id} {course?.course_code} Details</p>
         <form className='Form-View'>
-
           <div className="view">
-            <span>Coruse Name </span>
+            <span>Course Name </span>
             <b>{course?.name || ''}</b>
           </div>
           <div className="view">
@@ -29,11 +28,9 @@ function DetailsCourse() {
             <b>{course?.course_code}</b>
           </div>
           <div className="view">
-            <span>Professor Name:</span>
+            <span>Teacher’s Name</span>
             <b>{course?.professor}</b>
           </div>
-
-
           <div className="view">
             <span>Current Registration</span>
             <b>{course?.current_registration}/{course?.maximun_quota}</b>

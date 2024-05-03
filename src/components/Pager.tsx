@@ -5,7 +5,11 @@ import useGetAllCoursesPages from "../Hooks/useGetAllCoursesPages";
 
 const Pager = () => {
 
+  
   const { pageNumber, setPageNumber, limit, setLimit } = useContext(CoursesContext)
+
+  
+
   const { maxPageNumber } = useGetAllCoursesPages();
 
   const handlePrevClick = () => {

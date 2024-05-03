@@ -14,6 +14,11 @@
 .LimitSel{
     background: transparent;
 }
+.LimitSel:focus-within{
+    border-radius: 5px;
+   box-shadow: 1px 1px 0 0 #679ae3;
+}
+
 .Rotate{
     transform: scale(-1);
 }
