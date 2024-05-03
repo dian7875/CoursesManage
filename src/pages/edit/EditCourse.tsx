@@ -1,7 +1,8 @@
 import { useParams } from 'react-router-dom';
 import { ButtonAcept, ButtonCancel } from '../../components/ButtonsForms';
 import "./edit.css"
-import useEditCourse from "../../Hooks/useEditCourse"
+import useEditCourse from '../../Hooks/useEditCourse';
+
 
 
 function EditCourse() {

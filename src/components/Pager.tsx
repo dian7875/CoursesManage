@@ -2,6 +2,7 @@ import { useContext, useEffect } from "react";
 import "./Pager.css"
 import CoursesContext from "../Context/CoursesContext";
 import useGetAllCoursesPages from "../Hooks/useGetAllCoursesPages";
+
 const Pager = () => {
 
   const { pageNumber, setPageNumber, limit, setLimit } = useContext(CoursesContext)
