@@ -2,9 +2,28 @@
 import { Link } from 'react-router-dom'
 
 import "./alert.css"
+import Swal from 'sweetalert2';
+import { deleteCourse } from '../Services/Courses/CourseService';
 
-const Buttoms = ({ id }: { id: string }) => {
 
+const Buttoms = ({ id ,refreshCourses}: { id: string, refreshCourses: () => void }) => {
+  const handleAlert = async () => {
+    const result = await Swal.fire({
+      icon: "info",
+      title: "Are you sure about to do this action?",
+      showCancelButton: true,
+      confirmButtonText: "Yes",
+      cancelButtonText: "No",
+      customClass: {
+        cancelButton: "custom-cancel-button",
+        confirmButton: "custom-confirm-button",
+      },
+    });
+    if (result.isConfirmed) {
+      await deleteCourse(id);
+      refreshCourses();
+    }
+  };
   
   return (
     <>
@@ -20,7 +39,7 @@ const Buttoms = ({ id }: { id: string }) => {
           </button>
         </Link>
 
-        <button  className="hover:bg-red-700 text-sm bg-neutral-600 text-white px-2 py-1 rounded-lg shadow-lg">
+        <button onClick={handleAlert} className="hover:bg-red-700 text-sm bg-neutral-600 text-white px-2 py-1 rounded-lg shadow-lg">
           Delete
         </button>
       </div>

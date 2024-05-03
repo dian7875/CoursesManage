@@ -64,7 +64,7 @@ const useEditCourse = (courseId: string) => {
           data.maximun_quota = parseInt(data.maximun_quota) || 0;
         }
         await editCourse({data});
-        alert("SIUUUUU");
+       
       } catch (error) {
         console.error('Error al editar el curso', error);
       }

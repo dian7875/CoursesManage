@@ -7,7 +7,9 @@ function EditCourse() {
   const handleConfirm = () => {
     handleSubmit(onSubmit)();
   };
-
+  const onCancel = () => {
+    navigate("/");
+  };
   const { id } = useParams<{ id?: string }>();
   const {
     navigate,
@@ -100,11 +102,11 @@ function EditCourse() {
           </div>
 
           <div className="button-group2">
-            <ButtonCancel Title="Cancel" Event={() => navigate("/")} />
+            <ButtonCancel Title="Cancel" Event={onCancel} />
             <ButtonAcept
               Title="Send"
               onConfirm={handleConfirm}
-              Back={() => navigate("/")}
+              Back={onCancel}
             />
           </div>
         </form>

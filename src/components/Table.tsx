@@ -11,7 +11,7 @@ import { useEffect, useState } from "react";
 function Table() {
 
 
-  const { courses }: { courses: Course[] } = useGetAllCourses();
+  const { courses, refreshCourses } = useGetAllCourses();
   const [filteredCourses, setFilteredCourses] = useState(courses);
 
   useEffect(() => {
@@ -54,7 +54,7 @@ function Table() {
                   )}
                 </td>
                   <td>{course.space_available}</td>
-                <Buttoms id={course.id} />
+                <Buttoms id={course.id}  refreshCourses={refreshCourses}  />
               </tr>
             ))}
           </tbody>
