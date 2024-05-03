@@ -7,7 +7,7 @@ export const ButtonAcept = ({
   Back,
 }: {
   Title: string;
-  onConfirm: () => void;
+  onConfirm: () => void; //Cambiar a onsubmit
   Back: () => void;
 }) => {
   const handleAlert = async () => {
@@ -25,7 +25,7 @@ export const ButtonAcept = ({
 
     if (result.isConfirmed) {
       setTimeout(() => {
-        onConfirm();
+        onConfirm(); //cambiar a onsubmit
         Back();
       }, 1000);
 
