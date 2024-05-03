@@ -2,34 +2,23 @@
 
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
-
-import { createCourse } from "../../Services/Courses/CourseService";
 import Course from "../../types/courses";
 import { useNavigate } from "react-router-dom";
 import "../Forms.css";
 import { ButtonAcept, ButtonCancel } from "../../components/ButtonsForms";
 import { useState } from "react";
 import courseSchema from "../../validations/courseSchema";
+import { useSubmitCourse } from "../../Hooks/useSubmitCourse";
+
+
+
+
+
 function CreateCourse() {
-  const onSubmit = async (data: Course) => {
-    try {
 
-      if (typeof data.classroom_number === 'string') {
-        data.classroom_number = parseInt(data.classroom_number) || 0;
-      }
-      if (typeof data.maximun_quota === 'string') {
-        data.maximun_quota = parseInt(data.maximun_quota) || 0;
-      }
-      data.current_registration = Math.floor(
-        Math.random() * (Number(data.maximun_quota))
-      );
-      data.space_available = data.maximun_quota - data.current_registration;
 
-      await createCourse(data);
-    } catch (error) {
-      console.error("Error in create course", error);
-    }
-  };
+  const onSubmit = useSubmitCourse();
+
   const [status, setStatus] = useState<boolean>(true);
 
   const toggleStatus = () => {
