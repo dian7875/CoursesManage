@@ -19,7 +19,7 @@ function EditCourse() {
         <form className='Edit-Style'
           onSubmit={handleSubmit(onSubmit)}>
           <div className="item">
-            <span>Coruse Name </span>
+            <span>Course Name </span>
             <input
               title="Edit Field"
               type="text"
@@ -35,7 +35,7 @@ function EditCourse() {
             />
           </div>
           <div className="item">
-            <span>Teachers Name</span>
+            <span>Teacher’s Name</span>
             <input
               title="Edit Field"
               type="text"
@@ -51,7 +51,7 @@ function EditCourse() {
             />
           </div>
           <div className="matriculaStatus">
-            <div className="Text"> <span>Matricula Actual<span> / </span>Maximun Quota</span></div>
+            <div className="Text"> <span>Current Registration<span> / </span>Maximun Quota</span></div>
             <div className="EditField">
               <input
                 title="Edit Field"
@@ -66,7 +66,7 @@ function EditCourse() {
             </div>
           </div>
           <div className="item">
-            <span>Space Avaible</span>
+            <span>Space Available</span>
             <input
             readOnly
               title="Edit Field"

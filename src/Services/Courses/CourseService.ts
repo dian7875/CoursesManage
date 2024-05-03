@@ -57,7 +57,7 @@ const editCourse = async ({data}:{data: Course}) =>{
     return result;
 }
 
-const deleteCourse = async (id: number) => {
+const deleteCourse = async (id: string) => {
     const response = await fetch(`${urlCoursesBase}/${id}`, {
         method: 'DELETE',
     });

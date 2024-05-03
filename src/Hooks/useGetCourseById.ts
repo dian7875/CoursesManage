@@ -14,7 +14,7 @@ const useGetCourseById = (id: string) => {
                setCourse(courseObjet);
 
            }
-        )()
+        )
      },[id])
   
     return { course };

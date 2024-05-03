@@ -16,6 +16,9 @@ import { useSubmitCourse } from "../../Hooks/useSubmitCourse";
 
 function CreateCourse() {
 
+  const { register, handleSubmit, setValue, formState: { errors } } = useForm<Course>({
+    resolver: zodResolver(courseSchema)
+  });
 
   const onSubmit = useSubmitCourse();
 
@@ -30,9 +33,6 @@ function CreateCourse() {
     }
   };
 
-  const { register, handleSubmit, setValue, formState: { errors } } = useForm<Course>({
-    resolver: zodResolver(courseSchema)
-  });
   const navigate = useNavigate();
 
   const onCancel = () => {

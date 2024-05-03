@@ -3,7 +3,7 @@ import { getAllCoursesPages } from "../Services/Courses/CourseService"
 import CoursesContext from "../Context/CoursesContext";
 
 const useGetAllCoursesPages = () => {
-    const { maxPageNumber, setMaxPageNumber, limit } = useContext(CoursesContext);
+    const { maxPageNumber, setMaxPageNumber, limit} = useContext(CoursesContext);
 
     useEffect(() => {
 

@@ -8,7 +8,7 @@ const CoursesContext = React.createContext({
   maxPageNumber: 0,
   setMaxPageNumber: (value: number)=>{},
   limit:0,
-  setLimit:(value:number)=>{}
+  setLimit:(value:number)=>{},
 });
 
 export default CoursesContext;
