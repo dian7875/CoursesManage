@@ -5,7 +5,7 @@
     text-align: start;
     grid-template-rows: 4% 1fr;
     padding: 5% 10%;
-    align-items: center; /* Centrar verticalmente */
+    align-items: center;
     justify-items: center;
 }
 

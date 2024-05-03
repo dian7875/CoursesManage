@@ -1,43 +1,40 @@
-.MainView{
-  padding-left: 20%;
-  padding-top: 10%;
-  padding-right: 20%;
+.MainView {
+  padding: 5% 20% 0% 20%;
   text-align: start;
 }
-.MainView p{
-  margin-left: 1%;
-  margin-bottom: 1%;
-  font-size: x-large;
+
+.MainView p {
+  margin: 1% 0;
+  font-size: 1.5em;
   font-weight: bold;
 }
-.MainView span{
-  font-size: large;
- }
-.Form-View{
+
+.MainView span {
+  font-size: 1.2em;
+}
+
+.Form-View {
   border-radius: 20px;
-  box-shadow: 0px 0px 100px 0px #070707;
-  box-shadow: -5px 0 5px #779FA6;
+  box-shadow: -7px 7px 1px 0px rgb(119, 159, 166);
   display: grid;
-  grid-template-columns: 50% 50%;
+  grid-template-columns: 1fr 1fr;
   background-color: whitesmoke;
 }
 
-.Form-View input{
-  box-shadow: 0px 0px 2px 0px #386398;
-  width:80%;
-  border-radius: 5px;
-}
-.view{
-  margin: 5%;
+.view {
+  margin: 5% 0 5% 15%;
   display: flex;
   flex-direction: column;
   gap: 5px;
 }
-.MainView b{
-  font-size:large
+
+.MainView b {
+  font-size: 1.2em;
 }
-.button_group{
+
+.button_group {
   width: 25%;
   padding-top: 12%;
+  padding-left: 15%;
   height: 25%;
 }
