@@ -1,11 +1,12 @@
 import { Link } from "react-router-dom";
 import useGetAllCourses from "../Hooks/useGetAllCourses";
 import Course from "../types/courses";
-import audioFile from "../assets/test.mp3"
-import { useEffect, useRef } from "react";
 import Pager from "./Pager";
 import "./table.css";
 import Buttoms from "./Buttoms";
+
+import SearchForm from "./SearchForm";
+import { useEffect, useState } from "react";
 
 function Table() {
 
@@ -16,7 +17,13 @@ function Table() {
     }
   }, []);
   const { courses }: { courses: Course[] } = useGetAllCourses();
+  const [filteredCourses, setFilteredCourses] = useState(courses);
 
+  useEffect(() => {
+    setFilteredCourses(courses);
+  }, [courses]);
+
+ 
   return (
     <>
       <audio className="hidden"
@@ -25,8 +32,10 @@ function Table() {
       autoPlay
       controls/>
       <div className="main">
+      <SearchForm courses={courses} setFilteredCourses={setFilteredCourses} />
         <table className="Table-container">
           <caption>List Of Courses Of University Three Duckling</caption>
+       
           <caption className="cap2">
             <Link to={'/create'}>
               <button onClick={audioRef.current?.play} className="text-sm hover:bg-cyan-700 bg-cyan-900	 text-white py-2 px-1 rounded-lg shadow-lg">Agregar nuevo</button>
@@ -43,7 +52,7 @@ function Table() {
             </tr>
           </thead>
           <tbody>
-            {courses.map((course) => (
+          {filteredCourses.map((course) => (
               <tr key={course.id}>
                 <td>{course.id}</td>
                 <td>{course.professor}</td>
