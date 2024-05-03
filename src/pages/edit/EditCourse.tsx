@@ -1,23 +1,34 @@
-import { useParams } from 'react-router-dom';
-import { ButtonAcept, ButtonCancel } from '../../components/ButtonsForms';
-import "./edit.css"
-import useEditCourse from '../../Hooks/useEditCourse';
-
-
+import { useParams } from "react-router-dom";
+import { ButtonAcept, ButtonCancel } from "../../components/ButtonsForms";
+import "./edit.css";
+import useEditCourse from "../../Hooks/useEditCourse";
 
 function EditCourse() {
+  const handleConfirm = () => {
+    handleSubmit(onSubmit)();
+  };
+  const onCancel = () => {
+    navigate("/");
+  };
   const { id } = useParams<{ id?: string }>();
-  const { navigate ,course,
-     handleSubmit, register,
-      handleCurrentRegistrationChange,
-       handleMaximumQuotaChange,
-        toggleStatus, onSubmit } = useEditCourse(id || '');
+  const {
+    navigate,
+    course,
+    handleSubmit,
+    register,
+    handleCurrentRegistrationChange,
+    handleMaximumQuotaChange,
+    toggleStatus,
+    onSubmit,
+  } = useEditCourse(id || "");
   return (
     <>
       <div className="Edit-Form">
-        <p>Edit Course {course?.id}{course?.course_code}</p>
-        <form className='Edit-Style'
-          onSubmit={handleSubmit(onSubmit)}>
+        <p>
+          Edit Course {course?.id}
+          {course?.course_code}
+        </p>
+        <form className="Edit-Style" onSubmit={handleSubmit(onSubmit)}>
           <div className="item">
             <span>Course Name </span>
             <input
@@ -31,7 +42,7 @@ function EditCourse() {
             <input
               title="Edit Field"
               type="text"
-              {...register('course_code')}
+              {...register("course_code")}
             />
           </div>
           <div className="item">
@@ -47,7 +58,7 @@ function EditCourse() {
             <input
               title="Edit Field"
               type="number"
-              {...register('classroom_number')}
+              {...register("classroom_number")}
             />
           </div>
           <div className="matriculaStatus">
@@ -55,12 +66,15 @@ function EditCourse() {
             <div className="EditField">
               <input
                 title="Edit Field"
-                type="number" {...register('current_registration')}
-                onChange={handleCurrentRegistrationChange} />
+                type="number"
+                {...register("current_registration")}
+                onChange={handleCurrentRegistrationChange}
+              />
               /
               <input
                 title="Edit Field"
-                type="number" {...register('maximun_quota')}
+                type="number"
+                {...register("maximun_quota")}
                 onChange={handleMaximumQuotaChange}
               />
             </div>
@@ -68,10 +82,10 @@ function EditCourse() {
           <div className="item">
             <span>Space Available</span>
             <input
-            readOnly
+              readOnly
               title="Edit Field"
               type="number"
-              {...register('space_available')}
+              {...register("space_available")}
             />
           </div>
           <div className="item">
@@ -80,7 +94,7 @@ function EditCourse() {
               <input
                 className="status"
                 type="checkbox"
-                {...register('status')}
+                {...register("status")}
                 onChange={toggleStatus}
               />
               <span className="slider round"></span>
@@ -88,14 +102,15 @@ function EditCourse() {
           </div>
 
           <div className="button-group2">
-          <ButtonCancel Title='Cancel' Event={() => navigate('/')} />
-            <ButtonAcept Title='Send' />
+            <ButtonCancel Title="Cancel" Event={onCancel} />
+            <ButtonAcept
+              Title="Send"
+              onConfirm={handleConfirm}
+              Back={onCancel}
+            />
           </div>
-
-
         </form>
       </div>
-
     </>
   );
 }

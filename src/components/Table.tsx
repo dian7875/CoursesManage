@@ -1,6 +1,5 @@
 import { Link } from "react-router-dom";
 import useGetAllCourses from "../Hooks/useGetAllCourses";
-import Course from "../types/courses";
 import Pager from "./Pager";
 import "./table.css";
 import Buttoms from "./Buttoms";
@@ -11,7 +10,7 @@ import { useEffect, useState } from "react";
 function Table() {
 
 
-  const { courses }: { courses: Course[] } = useGetAllCourses();
+  const { courses, refreshCourses } = useGetAllCourses();
   const [filteredCourses, setFilteredCourses] = useState(courses);
 
   useEffect(() => {
@@ -54,7 +53,7 @@ function Table() {
                   )}
                 </td>
                   <td>{course.space_available}</td>
-                <Buttoms id={course.id} />
+                <Buttoms id={course.id}  refreshCourses={refreshCourses}  />
               </tr>
             ))}
           </tbody>

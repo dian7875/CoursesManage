@@ -10,12 +10,10 @@ import { useState } from "react";
 import courseSchema from "../../validations/courseSchema";
 import { useSubmitCourse } from "../../Hooks/useSubmitCourse";
 
-
-
-
-
 function CreateCourse() {
-
+  const handleConfirm = () => {
+    handleSubmit(onSubmit)();
+  };
   const { register, handleSubmit, setValue, formState: { errors } } = useForm<Course>({
     resolver: zodResolver(courseSchema)
   });
@@ -27,9 +25,9 @@ function CreateCourse() {
   const toggleStatus = () => {
     setStatus(!status);
     if (status) {
-      setValue('status', true)
+      setValue("status", true);
     } else {
-      setValue('status', false)
+      setValue("status", false);
     }
   };
 
@@ -51,51 +49,80 @@ function CreateCourse() {
       ></link>
 
       <div className="body-Form">
-         <p>Add New Course</p>
+        <p>Add New Course</p>
 
         <form className="Form-Style" onSubmit={handleSubmit(onSubmit)}>
           <div className="input-group">
             <label htmlFor="name">Course Name</label>
             <input type="text" id="name" {...register("name")} />
-            {errors.name &&  <p className="error-message">{errors.name.message}</p>}
+            {errors.name && (
+              <p className="error-message">{errors.name.message}</p>
+            )}
           </div>
 
           <div className="input-group">
             <label htmlFor="professor">Teacher’s Name</label>
             <input type="text" id="professor" {...register("professor")} />
-            {errors.professor &&  <p className="error-message"> {errors.professor.message}</p>}
+            {errors.professor && (
+              <p className="error-message"> {errors.professor.message}</p>
+            )}
           </div>
 
           <div className="input-group">
             <label htmlFor="course_code"> Course Code</label>
             <input type="text" id="course_code" {...register("course_code")} />
-            {errors.course_code &&  <p className="error-message">{errors.course_code.message}</p>}
+            {errors.course_code && (
+              <p className="error-message">{errors.course_code.message}</p>
+            )}
           </div>
 
           <div className="input-group">
             <label htmlFor="classroom_number">Classroom Number</label>
-            <input type="number" id="classroom_number" {...register("classroom_number")} />
-            {errors.classroom_number &&  <p className="error-message">{errors.classroom_number.message}</p>}
+            <input
+              type="number"
+              id="classroom_number"
+              {...register("classroom_number")}
+            />
+            {errors.classroom_number && (
+              <p className="error-message">{errors.classroom_number.message}</p>
+            )}
           </div>
 
           <div className="input-group">
             <label htmlFor="status">Course Status</label>
             <label className="toggle">
-              <input className="status" type="checkbox" {...register('status')} onChange={toggleStatus} />
+              <input
+                className="status"
+                type="checkbox"
+                {...register("status")}
+                onChange={toggleStatus}
+              />
               <span className="slider"></span>
             </label>
-            {errors.status &&  <p className="error-message">{errors.status.message}</p>}
+            {errors.status && (
+              <p className="error-message">{errors.status.message}</p>
+            )}
           </div>
 
           <div className="input-group">
             <label htmlFor="maximun_quota">Maximum Quota</label>
-            <input type="number" id="maximun_quota" {...register("maximun_quota")} />
-            {errors.maximun_quota &&  <p className="error-message">{errors.maximun_quota.message}</p>}
+            <input
+              type="number"
+              id="maximun_quota"
+              {...register("maximun_quota")}
+            />
+            {errors.maximun_quota && (
+              <p className="error-message">{errors.maximun_quota.message}</p>
+            )}
           </div>
 
           <div className="button-group">
             <ButtonCancel Title="Cancel" Event={onCancel} />
-            <ButtonAcept Title="Save" />
+            <ButtonAcept
+              Title="Save"
+              onConfirm={handleConfirm}
+              Back={onCancel}
+            />
           </div>
         </form>
       </div>
