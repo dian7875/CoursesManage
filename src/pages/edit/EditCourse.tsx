@@ -28,8 +28,12 @@ function EditCourse() {
         </p>
         <form className="Edit-Style" onSubmit={handleSubmit(onSubmit)}>
           <div className="item">
-            <span>Coruse Name </span>
-            <input title="Edit Field" type="text" {...register("name")} />
+            <span>Course Name </span>
+            <input
+              title="Edit Field"
+              type="text"
+              {...register('name')}
+            />
           </div>
           <div className="item">
             <span>Course Code</span>
@@ -40,8 +44,12 @@ function EditCourse() {
             />
           </div>
           <div className="item">
-            <span>Teachers Name</span>
-            <input title="Edit Field" type="text" {...register("professor")} />
+            <span>Teacher’s Name</span>
+            <input
+              title="Edit Field"
+              type="text"
+              {...register('professor')}
+            />
           </div>
           <div className="item">
             <span>Classroom Number</span>
@@ -52,12 +60,7 @@ function EditCourse() {
             />
           </div>
           <div className="matriculaStatus">
-            <div className="Text">
-              {" "}
-              <span>
-                Matricula Actual<span> / </span>Maximun Quota
-              </span>
-            </div>
+            <div className="Text"> <span>Current Registration<span> / </span>Maximun Quota</span></div>
             <div className="EditField">
               <input
                 title="Edit Field"
@@ -75,7 +78,7 @@ function EditCourse() {
             </div>
           </div>
           <div className="item">
-            <span>Space Avaible</span>
+            <span>Space Available</span>
             <input
               readOnly
               title="Edit Field"

@@ -7,7 +7,11 @@ import { useForm } from "react-hook-form";
 
 const useEditCourse = (courseId: string) => {
     const { course } = useGetCourseById(courseId);
-    const { handleSubmit, register, setValue, watch } = useForm<Course>();
+    const { handleSubmit,
+       register,
+        setValue, watch } = useForm<Course>({
+  
+        });
     const navigate = useNavigate();
     const [status, setStatus] = useState<boolean>(true);
   
