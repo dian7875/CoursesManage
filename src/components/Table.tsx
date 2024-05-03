@@ -6,12 +6,14 @@ import Buttoms from "./Buttoms";
 
 import SearchForm from "./SearchForm";
 import { useEffect, useState } from "react";
+import useGetAllCoursesPages from "../Hooks/useGetAllCoursesPages";
 
 function Table() {
 
 
   const { courses, refreshCourses } = useGetAllCourses();
   const [filteredCourses, setFilteredCourses] = useState(courses);
+  const { maxPageNumber } = useGetAllCoursesPages();
 
   useEffect(() => {
     setFilteredCourses(courses);
@@ -58,7 +60,7 @@ function Table() {
             ))}
           </tbody>
         </table>
-        <Pager />
+        <Pager maxPageNumber={maxPageNumber} />
       </div>
     </>
   );

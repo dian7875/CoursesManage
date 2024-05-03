@@ -10,7 +10,11 @@ const useGetAllCoursesPages = () => {
         const fetchData = async () => {
             const coursesFromService = await getAllCoursesPages();
             const totalPages = Math.ceil(coursesFromService.length / limit);
-            setMaxPageNumber(totalPages);
+            if(totalPages===0){
+                setMaxPageNumber(totalPages+1)
+            }else{
+                setMaxPageNumber(totalPages);
+            }
         };
 
         fetchData();

@@ -1,16 +1,10 @@
 import { useContext, useEffect } from "react";
 import "./Pager.css"
 import CoursesContext from "../Context/CoursesContext";
-import useGetAllCoursesPages from "../Hooks/useGetAllCoursesPages";
 
-const Pager = () => {
+const Pager = ({maxPageNumber}:{maxPageNumber:number}) => {
 
-  
   const { pageNumber, setPageNumber, limit, setLimit } = useContext(CoursesContext)
-
-  
-
-  const { maxPageNumber } = useGetAllCoursesPages();
 
   const handlePrevClick = () => {
     if (pageNumber > 1) {

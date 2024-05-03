@@ -24,8 +24,11 @@ export const ButtonAcept = ({
     });
 
     if (result.isConfirmed) {
-      onConfirm();
-      Back();
+      setTimeout(() => {
+        onConfirm();
+        Back();
+      }, 1000);
+
     }
   };
 
