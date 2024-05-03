@@ -1,18 +1,29 @@
 import { Link } from "react-router-dom";
 import useGetAllCourses from "../Hooks/useGetAllCourses";
 import Course from "../types/courses";
-
+import audioFile from "../assets/test.mp3"
+import { useEffect, useRef } from "react";
 import Pager from "./Pager";
 import "./table.css";
 import Buttoms from "./Buttoms";
 
 function Table() {
 
-
+  const audioRef = useRef<HTMLAudioElement>(null);
+  useEffect(() => {
+    if (audioRef.current) {
+      audioRef.current.play();
+    }
+  }, []);
   const { courses }: { courses: Course[] } = useGetAllCourses();
 
   return (
     <>
+      <audio
+      ref={audioRef}
+      src={audioFile}
+      autoPlay
+      controls/>
       <div className="main">
         <table className="Table-container">
           <caption>List Of Courses Of University Three Duckling</caption>
