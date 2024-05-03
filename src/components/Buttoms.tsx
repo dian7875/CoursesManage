@@ -1,7 +1,7 @@
 
 import { Link } from 'react-router-dom'
 
-import "./alert.css"
+import "./alerts.css"
 import Swal from 'sweetalert2';
 import { deleteCourse } from '../Services/Courses/CourseService';
 

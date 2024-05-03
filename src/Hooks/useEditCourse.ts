@@ -4,6 +4,8 @@ import Course from "../types/courses";
 import useGetCourseById from "./useGetCourseById";
 import { useNavigate } from "react-router-dom";
 import { useForm } from "react-hook-form";
+import fail from "../components/alerts/fail";
+import correct from "../components/alerts/correct";
 
 const useEditCourse = (courseId: string) => {
     const { course } = useGetCourseById(courseId);
@@ -64,9 +66,10 @@ const useEditCourse = (courseId: string) => {
           data.maximun_quota = parseInt(data.maximun_quota) || 0;
         }
         await editCourse({data});
-       
+        correct()
       } catch (error) {
         console.error('Error al editar el curso', error);
+        fail()
       }
     };
   

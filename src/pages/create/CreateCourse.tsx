@@ -11,9 +11,7 @@ import courseSchema from "../../validations/courseSchema";
 import { useSubmitCourse } from "../../Hooks/useSubmitCourse";
 
 function CreateCourse() {
-  const handleConfirm = () => {
-    handleSubmit(onSubmit)();
-  };
+
   const { register, handleSubmit, setValue, formState: { errors } } = useForm<Course>({
     resolver: zodResolver(courseSchema)
   });
@@ -36,7 +34,6 @@ function CreateCourse() {
   const onCancel = () => {
     navigate("/");
   };
-
   return (
     <>
       <link
@@ -120,8 +117,6 @@ function CreateCourse() {
             <ButtonCancel Title="Cancel" Event={onCancel} />
             <ButtonAcept
               Title="Save"
-              onConfirm={handleConfirm}
-              Back={onCancel}
             />
           </div>
         </form>
