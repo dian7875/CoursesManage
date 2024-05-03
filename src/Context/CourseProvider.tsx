@@ -7,9 +7,7 @@ const CourseProvider = ({children}: {children: ReactNode}) => {
     const [maxPageNumber, setMaxPageNumber]=useState(1)
     const [limit, setLimit] = useState(5)
     return (
-      <CoursesContext.Provider value={{CourseId, setCourseId, pageNumber,
-       setPageNumber, maxPageNumber, setMaxPageNumber,
-        limit, setLimit}}>
+      <CoursesContext.Provider value={{CourseId, setCourseId, pageNumber,setPageNumber, maxPageNumber, setMaxPageNumber,limit, setLimit}}>
           {children}
       </CoursesContext.Provider>
     )

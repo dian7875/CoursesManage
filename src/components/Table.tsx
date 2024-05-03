@@ -21,14 +21,10 @@ function Table() {
  
   return (
     <>
-      <audio className="hidden"
-      autoPlay
-      controls/>
       <div className="main">
       <SearchForm courses={courses} setFilteredCourses={setFilteredCourses} />
         <table className="Table-container">
           <caption>List Of Courses Of University Three Duckling</caption>
-       
           <caption className="cap2">
             <Link to={'/create'}>
               <button  className="text-sm hover:bg-cyan-700 bg-cyan-900	 text-white py-2 px-1 rounded-lg shadow-lg">Agregar nuevo</button>
