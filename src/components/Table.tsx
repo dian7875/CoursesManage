@@ -13,7 +13,7 @@ function Table() {
 
   const { courses, refreshCourses } = useGetAllCourses();
   const [filteredCourses, setFilteredCourses] = useState(courses);
-  const { maxPageNumber } = useGetAllCoursesPages();
+  const { maxPageNumber} = useGetAllCoursesPages();
 
   useEffect(() => {
     setFilteredCourses(courses);
