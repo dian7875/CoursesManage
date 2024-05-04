@@ -1,11 +1,9 @@
 import { useContext, useEffect } from "react"
 import { getAllCoursesPages } from "../Services/Courses/CourseService"
 import CoursesContext from "../Context/CoursesContext";
-import useGetAllCourses from "./useGetAllCourses";
 
 const useGetAllCoursesPages = () => {
     const { maxPageNumber, setMaxPageNumber, limit} = useContext(CoursesContext);
-    const { refreshCourses } = useGetAllCourses(); 
     useEffect(() => {
 
         const fetchData = async () => {
@@ -20,7 +18,7 @@ const useGetAllCoursesPages = () => {
 
         fetchData();
 
-    }, [limit, setMaxPageNumber, refreshCourses]);
+    }, [limit, setMaxPageNumber]);
     return { maxPageNumber };
 };
 
