@@ -48,3 +48,30 @@
   .hidden{
     display: none;
   }
+
+
+  .Search-input{
+    border-radius: 5px;
+    text-align: left;
+    background-color: #f6f6f7;
+    padding-left: 40px;
+  }
+
+  .Search-input::placeholder {
+    font-size: 14px; 
+    text-align: left;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+}
+
+.search-container {
+  margin-top: 2rem;
+    position: relative;
+}
+.search-icon {
+  position: absolute;
+  left: 10px;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 20px;
+  height: 20px;
+}

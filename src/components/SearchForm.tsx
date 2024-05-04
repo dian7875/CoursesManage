@@ -1,6 +1,7 @@
 import React from 'react';
 import Course from "../types/courses";
 
+
 type Props = {
   courses: Course[];
   setFilteredCourses: (courses: Course[]) => void;
@@ -18,12 +19,15 @@ function SearchForm({ courses, setFilteredCourses }: Props) {
   };
 
   return (
-    <form>
-      <input 
+    
+<div className="search-container">
+<img src="/src/assets/busqueda.png" alt="Search icon" className="search-icon" />
+    <input 
+        className='Search-input'
         onChange={handleSearch} 
-        placeholder="Course Code" 
-      />
-    </form>
+        placeholder="Search by Name Course" 
+    />
+</div>
   );
 }
 
