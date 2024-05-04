@@ -64,7 +64,9 @@
 }
 
 .search-container {
+  z-index: 99;
   margin-top: 2rem;
+  margin-right: 6rem;
     position: relative;
 }
 .search-icon {
