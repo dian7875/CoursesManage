@@ -4,9 +4,7 @@ import "./edit.css";
 import useEditCourse from "../../Hooks/useEditCourse";
 
 function EditCourse() {
-  const handleConfirm = () => {
-    handleSubmit(onSubmit)();
-  };
+
   const onCancel = () => {
     navigate("/");
   };
@@ -105,8 +103,6 @@ function EditCourse() {
             <ButtonCancel Title="Cancel" Event={onCancel} />
             <ButtonAcept
               Title="Send"
-              onConfirm={handleConfirm}
-              Back={onCancel}
             />
           </div>
         </form>
