@@ -5,3 +5,10 @@
     align-items: center;
     font-size: x-large;
 }
+
+@media screen and (min-width: 1280px) {
+    .Header{
+    
+        max-height: 9vh;
+    }
+   }

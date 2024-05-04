@@ -83,3 +83,9 @@
 .EditField input:last-child {
     margin-left: 2%;
 }
+@media screen and (min-width: 1280px) {
+    .Edit-Form{
+     max-height: 74vh ;
+    }
+   
+   }

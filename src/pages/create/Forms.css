@@ -163,3 +163,9 @@ label {
   }
 }
 
+@media screen and (width: 1280px) {
+
+ .button-group button{
+  padding-bottom: 1rem;
+ }
+}
