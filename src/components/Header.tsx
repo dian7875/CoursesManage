@@ -1,12 +1,18 @@
 //import image from "../assets/Icon.png"
 import image from "../assets/PYh.gif"
 import "./Header.css"
-import { Outlet } from "react-router-dom";
+import { Outlet, useNavigate } from "react-router-dom";
 const Header = () => {
+
+ const navigate = useNavigate();
+
+ const goHome = () => {
+  navigate("/");
+};
   return (
     <>
       <div className="Header">
-        <img width={90} src={image} alt="" />
+        <img onClick={goHome} width={90} src={image} alt="" />
         <p style={{ cursor: 'default' }}>University Three Duckling</p>
       </div>
       <Outlet />

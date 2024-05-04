@@ -2,13 +2,15 @@ import React from "react";
 
 const CoursesContext = React.createContext({
   CourseId: '',
-  setCourseId: (id: string)=>{},
+  setCourseId: (_id: string)=>{},
   pageNumber: 0,
-  setPageNumber: (value: number)=>{},
+  setPageNumber: (_value: number)=>{},
   maxPageNumber: 0,
-  setMaxPageNumber: (value: number)=>{},
+  setMaxPageNumber: (_value: number)=>{},
   limit:0,
-  setLimit:(value:number)=>{},
+  setLimit:(_value:number)=>{},
+  changeList: true,
+  setChangeList:(_value:boolean)=>{}
 });
 
 export default CoursesContext;

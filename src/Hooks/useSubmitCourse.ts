@@ -1,14 +1,10 @@
 import { useCallback } from 'react';
 import Course from '../types/courses';
-import '../components/alerts.css'
+import '../components/alerts/alerts.css'
 import Swal from 'sweetalert2';
 import { createCourse } from '../Services/Courses/CourseService';
 import { useNavigate } from 'react-router-dom';
-import correct from '../components/alerts/correct';
-import fail from '../components/alerts/fail';
-
-
-
+import { correct, fail } from "../components/alerts/alerts";
 
 export function useSubmitCourse() {
   const navigate = useNavigate();
