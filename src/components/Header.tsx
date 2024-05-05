@@ -1,5 +1,4 @@
-//import image from "../assets/Icon.png"
-import image from "../assets/PYh.gif"
+import image from "../assets/Icon.png"
 import "./Header.css"
 import { Outlet, useNavigate } from "react-router-dom";
 const Header = () => {
