@@ -25,14 +25,7 @@ function Table() {
       setMaxPageNumber(maxPageNumber - 1);
     }
   }, [refreshCourses]);
-  useEffect(()=>
-  {
-    console.table(courses)
-    if(courses.length == 0 && pageNumber>1 )
-      setPageNumber(pageNumber-1);
-     //maxPageNumber = (maxPageNumber-1) esta parte max page number viene de contex, tambuen del use
-  }
-  ,[refreshCourses])
+
 
   const refreshCurrentPage = () => {
    refreshCourses();
@@ -43,12 +36,6 @@ function Table() {
       <div className="main">
         <table id="TablaResults" className="Table-container">
           <caption>List Of Courses Of University Three Duckling</caption>
-          <caption className="Search-Caption">
-            <SearchForm
-              courses={courses}
-              setFilteredCourses={setFilteredCourses}
-            />
-          </caption>
           <caption className="Search-Caption"><SearchForm  refreshCurrentPage={refreshCurrentPage}  setFilteredCourses={setFilteredCourses} /></caption>
           <caption className="cap2">
             <Link to={"/create"}>
