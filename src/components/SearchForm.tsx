@@ -1,33 +1,39 @@
-import React from 'react';
-import Course from "../types/courses";
+import React, { useState } from 'react';
+import {  searchCourse } from '../Services/Courses/CourseService';
+import searchIcon from '../assets/busqueda.png';
+import Course from '../types/courses';
 
 
 type Props = {
-  courses: Course[];
   setFilteredCourses: (courses: Course[]) => void;
+  refreshCurrentPage: () => void;
 };
 
-function SearchForm({ courses, setFilteredCourses }: Props) {
-  const handleSearch = (event: React.ChangeEvent<HTMLInputElement>) => {
-    const value = event.target.value.toLowerCase();
+function SearchForm({ setFilteredCourses, refreshCurrentPage  }: Props) {
+  const [searchValue, setSearchValue] = useState('');
+
+  const handleSearch = async (event: React.ChangeEvent<HTMLInputElement>) => {
+    const value = event.target.value;
+    setSearchValue(value);
     if (value === '') {
-      setFilteredCourses(courses);
+      refreshCurrentPage();
     } else {
-      const filtered = courses.filter(course => course.name.toLowerCase().includes(value));
-      setFilteredCourses(filtered);
+      const courses = await searchCourse(value);
+      setFilteredCourses(courses);
     }
   };
 
   return (
-    
-<div className="search-container">
-<img src="/src/assets/busqueda.png" alt="Search icon" className="search-icon" />
-    <input 
-        className='Search-input'
-        onChange={handleSearch} 
-        placeholder="Search by Name Course" 
-    />
-</div>
+    <div className="Search-container">
+      <img src={searchIcon} alt="Search icon" className="search-icon" />
+
+      <input className='Search-input'
+        type="text"
+        placeholder="Search by course name"
+        value={searchValue}
+        onChange={handleSearch}
+      />
+    </div>
   );
 }
 

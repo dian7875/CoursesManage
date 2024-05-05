@@ -59,11 +59,11 @@
 
   .Search-input::placeholder {
     font-size: 14px; 
-    text-align: left;
+    text-align:center;
     font-family: Georgia, 'Times New Roman', Times, serif;
 }
 
-.search-container {
+.Search-container {
   z-index: 99;
   margin-top: 2rem;
   margin-right: 6rem;
