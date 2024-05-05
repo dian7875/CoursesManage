@@ -4,8 +4,9 @@ import Pager from "./Pager";
 import "./table.css";
 import Buttoms from "./Buttoms";
 import SearchForm from "./SearchForm";
-import {  useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import useGetAllCoursesPages from "../Hooks/useGetAllCoursesPages";
+
 
 function Table() {
   const { courses, refreshCourses } = useGetAllCourses();

@@ -9,8 +9,6 @@ const CoursesContext = React.createContext({
   setMaxPageNumber: (_value: number)=>{},
   limit:0,
   setLimit:(_value:number)=>{},
-  rowsNumber:0,
-   setRowNumber:(_value:number)=>{}
 });
 
 export default CoursesContext;
