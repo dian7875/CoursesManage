@@ -22,3 +22,21 @@
 .Rotate{
     transform: scale(-1);
 }
+
+.LimitSel {
+  background: transparent;
+  border: none;
+  color: inherit; /* Para que el color del texto sea el mismo que el del texto circundante */
+  cursor: pointer; /* Para que el cursor cambie a una mano cuando se pasa por encima */
+  font: inherit; /* Para que la fuente sea la misma que la del texto circundante */
+  outline: inherit; /* Para eliminar el contorno que aparece cuando se hace clic en el botón */
+}
+
+.LimitSel:focus-within {
+  border-radius: 5px;
+  box-shadow: 1px 1px 0 0 #679ae3;
+}
+
+.Rotate {
+  transform: scale(-1);
+}

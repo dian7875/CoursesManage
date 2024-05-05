@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import {  searchCourse } from '../Services/Courses/CourseService';
-import searchIcon from '../assets/busqueda.png';
+import searchIcon from '../assets/buscar.png';
 import Course from '../types/courses';
 
 

@@ -70,20 +70,26 @@ const deleteCourse = async (id: string) => {
 }
 
 const searchCourse = async (name: string) => {
-    const url = new URL(urlCoursesBase);
-    url.searchParams.append('name', name);
+    try {
+      const url = new URL(urlCoursesBase);
+      url.searchParams.append('name', name);
   
-    const response = await fetch(url, {
-      method: 'GET',
-      headers: {'content-type':'application/json'},
-    });
+      const response = await fetch(url, {
+        method: 'GET',
+        headers: {'content-type':'application/json'},
+      });
   
-    if (!response.ok) {
-      throw new Error('Error searching course');
+      if (!response.ok) {
+
+        return [];
+      }
+  
+      const courses = await response.json();
+      return courses;
+    } catch (error) {
+      console.error('Error in searchCourse:', error);
+      return [];
     }
-  
-    const courses = await response.json();
-    return courses;
   }
 
 export {
