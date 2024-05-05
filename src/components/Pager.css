@@ -24,13 +24,18 @@
 }
 
 .LimitSel {
-  background: transparent;
-  border: none;
-  color: inherit; /* Para que el color del texto sea el mismo que el del texto circundante */
-  cursor: pointer; /* Para que el cursor cambie a una mano cuando se pasa por encima */
-  font: inherit; /* Para que la fuente sea la misma que la del texto circundante */
-  outline: inherit; /* Para eliminar el contorno que aparece cuando se hace clic en el botón */
-}
+    padding: 0.1em;
+    border: 1px solid #aec6cb transparent;
+    border-radius: 5px; 
+    background-color: #aec6cb;
+    color: #333;
+    cursor: pointer;
+    font-size: 1em;
+    outline: none;
+    -webkit-appearance: none;
+    -moz-appearance: none; 
+    appearance: none; 
+  }
 
 .LimitSel:focus-within {
   border-radius: 5px;
