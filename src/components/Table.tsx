@@ -4,18 +4,29 @@ import Pager from "./Pager";
 import "./table.css";
 import Buttoms from "./Buttoms";
 import SearchForm from "./SearchForm";
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import useGetAllCoursesPages from "../Hooks/useGetAllCoursesPages";
+import CoursesContext from "../Context/CoursesContext";
 
 
 function Table() {
   const { courses, refreshCourses } = useGetAllCourses();
   const [filteredCourses, setFilteredCourses] = useState(courses);
   const { maxPageNumber} = useGetAllCoursesPages();
-
+  const {pageNumber, setPageNumber} = useContext(CoursesContext)
   useEffect(() => {
     setFilteredCourses(courses);
   }, [courses]);
+
+  useEffect(()=>
+  {
+    console.table(courses)
+    if(courses.length == 0 && pageNumber>1 )
+      setPageNumber(pageNumber-1);
+     //maxPageNumber = (maxPageNumber-1) esta parte max page number viene de contex, tambuen del use
+  }
+  ,[refreshCourses])
+
 
   return (
     <>
