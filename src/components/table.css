@@ -59,7 +59,7 @@
 
   .Search-input::placeholder {
     font-size: 14px; 
-    text-align:center;
+    text-align:left;
     font-family: Georgia, 'Times New Roman', Times, serif;
 }
 
