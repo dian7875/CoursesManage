@@ -26,13 +26,13 @@ export const noMorePages = (): void => {
       timer: 1500,
   });
 }
-export const recharged = (): void => {
+export const recharged = (timer:number, title:string ): void => {
   let timerInterval: number | undefined;
 
   Swal.fire({
-    title: "Eliminando",
+    title: title,
     html: "Please Wait",
-    timer: 5000,
+    timer: timer,
     timerProgressBar: true,
     didOpen: () => {
       Swal.showLoading();

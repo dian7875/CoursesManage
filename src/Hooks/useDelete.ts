@@ -4,6 +4,7 @@ import { deleteCourse } from "../Services/Courses/CourseService";
 import { fail, recharged } from "../components/alerts/alerts";
 
 const useDelete = async (id: string, refreshCourses: () => void): Promise<void> => {
+
   try {
     const result = await Swal.fire({
       icon: 'info',
@@ -19,10 +20,10 @@ const useDelete = async (id: string, refreshCourses: () => void): Promise<void> 
 
     if (result.isConfirmed) {
       await deleteCourse(id);
-      recharged();
+      recharged(1000, `Delete Course ${id}`);
       setTimeout(() => {
-          refreshCourses();
-      }, 5000);
+        refreshCourses();
+      }, 1500);
     }
   } catch (error) {
     console.error('Error occurred during deletion:', error);

@@ -3,19 +3,12 @@ import useGetAllCourses from "../Hooks/useGetAllCourses";
 import Pager from "./Pager";
 import "./table.css";
 import Buttoms from "./Buttoms";
-import audioFile from "../assets/test.mp3"
 import SearchForm from "./SearchForm";
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useState } from "react";
 import useGetAllCoursesPages from "../Hooks/useGetAllCoursesPages";
 
-function Table() {
-  const audioRef = useRef<HTMLAudioElement>(null);
-  useEffect(() => {
-    if (audioRef.current) {
-      audioRef.current.play();
-    }
-  }, []);
 
+function Table() {
   const { courses, refreshCourses } = useGetAllCourses();
   const [filteredCourses, setFilteredCourses] = useState(courses);
   const { maxPageNumber} = useGetAllCoursesPages();
@@ -24,22 +17,15 @@ function Table() {
     setFilteredCourses(courses);
   }, [courses]);
 
- 
   return (
     <>
       <div className="main">
-      <audio
-      className="hidden"
-      ref={audioRef}
-      src={audioFile}
-      autoPlay
-      controls/>
-        <table className="Table-container">
+        <table id="TablaResults" className="Table-container">
           <caption>List Of Courses Of University Three Duckling</caption>
           <caption className="Search-Caption"><SearchForm courses={courses} setFilteredCourses={setFilteredCourses} /></caption>
           <caption className="cap2">
             <Link to={'/create'}>
-              <button onClick={audioRef.current?.play}  className="text-sm hover:bg-cyan-700 bg-cyan-900	 text-white py-2 px-1 rounded-lg shadow-lg">Agregar nuevo</button>
+              <button className="text-sm hover:bg-cyan-700 bg-cyan-900	 text-white py-2 px-1 rounded-lg shadow-lg">Agregar nuevo</button>
             </Link>
           </caption>
           <thead>
@@ -66,7 +52,9 @@ function Table() {
                   )}
                 </td>
                   <td>{course.space_available}</td>
+                  <td>
                 <Buttoms id={course.id}  refreshCourses={refreshCourses}  />
+                  </td>
               </tr>
             ))}
           </tbody>

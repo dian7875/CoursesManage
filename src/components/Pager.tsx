@@ -5,7 +5,7 @@ import { noMorePages } from "./alerts/alerts";
 
 const Pager = ({ maxPageNumber }: { maxPageNumber: number }) => {
 
-  const { pageNumber, setPageNumber, limit, setLimit, changeList } = useContext(CoursesContext)
+  const { pageNumber, setPageNumber, limit, setLimit} = useContext(CoursesContext)
 
   const handlePrevClick = () => {
     if (pageNumber == 1) {
@@ -26,7 +26,7 @@ const Pager = ({ maxPageNumber }: { maxPageNumber: number }) => {
     if (pageNumber > maxPageNumber) {
       setPageNumber(maxPageNumber)
     }
-  }, [pageNumber, maxPageNumber, changeList]);
+  }, [pageNumber, maxPageNumber]);
 
   const changeLimit = (event: React.ChangeEvent<HTMLSelectElement>) => {
     const value = parseInt(event.target.value);
