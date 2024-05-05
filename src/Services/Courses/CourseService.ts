@@ -69,11 +69,29 @@ const deleteCourse = async (id: string) => {
     return response.ok;
 }
 
+const searchCourse = async (name: string) => {
+    const url = new URL(urlCoursesBase);
+    url.searchParams.append('name', name);
+  
+    const response = await fetch(url, {
+      method: 'GET',
+      headers: {'content-type':'application/json'},
+    });
+  
+    if (!response.ok) {
+      throw new Error('Error searching course');
+    }
+  
+    const courses = await response.json();
+    return courses;
+  }
+
 export {
     getAllCourses,
     getCourseById,
     createCourse,
     deleteCourse,
     getAllCoursesPages,
-    editCourse
+    editCourse,
+    searchCourse
 }
