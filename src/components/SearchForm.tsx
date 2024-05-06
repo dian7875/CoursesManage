@@ -12,27 +12,34 @@ type Props = {
 function SearchForm({ setFilteredCourses, refreshCurrentPage  }: Props) {
   const [searchValue, setSearchValue] = useState('');
 
-  const handleSearch = async (event: React.ChangeEvent<HTMLInputElement>) => {
+  const handleInputChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     const value = event.target.value;
     setSearchValue(value);
+
     if (value === '') {
       refreshCurrentPage();
-    } else {
-      const courses = await searchCourse(value);
+    }
+  };
+
+  const handleSearchClick = async () => {
+    if (searchValue !== '') {
+      const courses = await searchCourse(searchValue);
       setFilteredCourses(courses);
     }
   };
 
   return (
     <div className="Search-container">
-      <img src={searchIcon} alt="Search icon" className="search-icon" />
-
       <input className='Search-input'
         type="text"
         placeholder="Search by course name"
         value={searchValue}
-        onChange={handleSearch}
+        onChange={handleInputChange}
       />
+
+      <button className="search-icon" onClick={handleSearchClick}>
+        <img src={searchIcon} alt="Search icon" className="Search-icon" />
+      </button>
     </div>
   );
 }
