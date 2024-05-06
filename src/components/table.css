@@ -54,7 +54,8 @@
     border-radius: 5px;
     text-align:left;
     background-color: #f6f6f7;
-    padding-left: 40px;
+    padding-left: 30px;
+    height: 5vh;
   }
 
   .Search-input::placeholder {
@@ -62,6 +63,7 @@
     text-align:left;
     color:  #6E6E71;
     font-family: Georgia, 'Times New Roman', Times, serif;
+    line-height: normal;
 }
 
 .Search-container {
