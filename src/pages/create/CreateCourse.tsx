@@ -116,6 +116,7 @@ function CreateCourse() {
             )}
           </div>
 
+       
           <div className="button-group">
             <ButtonCancel Title="Cancel" Event={onCancel} />
             <ButtonAcept

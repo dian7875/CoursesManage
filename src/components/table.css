@@ -35,6 +35,10 @@
     border-bottom: none;
     border-top: none;
   }
+
+  .Table-container  tbody tr:hover {
+    background-color: #aec6cb;
+  }
   .CourseStatus {
     color: #4F5AED;
     background-color: #dcdeed;
