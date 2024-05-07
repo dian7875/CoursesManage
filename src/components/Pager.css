@@ -11,36 +11,20 @@
     justify-content: end;
     gap: 15px;
 }
-.LimitSel{
-    background: transparent;
-}
+
 .LimitSel:focus-within{
     border-radius: 5px;
    box-shadow: 1px 1px 0 0 #679ae3;
 }
 
-.Rotate{
-    transform: scale(-1);
-}
-
 .LimitSel {
-    padding: 0.1em;
-    border: 1px solid #aec6cb transparent;
-    border-radius: 5px; 
-    background-color: #aec6cb;
-    color: #333;
     cursor: pointer;
-    font-size: 1em;
-    outline: none;
-    -webkit-appearance: none;
-    -moz-appearance: none; 
-    appearance: none; 
+    background: transparent;
+    margin-right: 0.5em;
+    padding: 0.3em;
+    border-radius: 5px; 
+    color: #000000;
   }
-
-.LimitSel:focus-within {
-  border-radius: 5px;
-  box-shadow: 1px 1px 0 0 #679ae3;
-}
 
 .Rotate {
   transform: scale(-1);
