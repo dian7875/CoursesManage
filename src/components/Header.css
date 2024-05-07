@@ -1,9 +1,10 @@
 .Header {
     display: flex;
-    justify-content: start;
+    justify-content: space-between;
     background-color: #779FA6;
     align-items: center;
     font-size: x-large;
+    
 }
 
 @media screen and (min-width: 1280px) {
@@ -12,3 +13,12 @@
         max-height: 9vh;
     }
    }
+
+   .Header-dark {
+    display: flex;
+    justify-content: space-between;
+    background-color: #0C2327;
+    align-items: center;
+    font-size: x-large;
+    color: white;
+}

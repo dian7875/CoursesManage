@@ -7,6 +7,7 @@ import SearchForm from "./SearchForm";
 import { useContext, useEffect, useState } from "react";
 import useGetAllCoursesPages from "../Hooks/useGetAllCoursesPages";
 import CoursesContext from "../Context/CoursesContext";
+import ThemeContext from "../Context/ThemeContext";
 
 function Table() {
   const { courses, refreshCourses } = useGetAllCourses();
@@ -15,6 +16,12 @@ function Table() {
   const { pageNumber, setPageNumber } = useContext(CoursesContext);
   const { setMaxPageNumber } = useContext(CoursesContext);
 
+  
+
+   const {darkMode, toggleDarkMode} = useContext(ThemeContext) 
+ 
+
+  
   useEffect(() => {
     setFilteredCourses(courses);
   }, [courses]);
@@ -33,9 +40,11 @@ function Table() {
 
   return (
     <>
-      <div className="main">
+      <div className={darkMode ? 'main-dark' : 'main'}>
+      
         <table id="TablaResults" className="Table-container">
-          <caption>List Of Courses Of University Three Duckling</caption>
+          <caption className={darkMode?"text-white":''}>List Of Courses Of University Three Duckling</caption>
+          
           <caption className="Search-Caption"><SearchForm  refreshCurrentPage={refreshCurrentPage}  setFilteredCourses={setFilteredCourses} /></caption>
           <caption className="cap2">
             <Link to={"/create"}>

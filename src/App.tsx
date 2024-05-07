@@ -5,9 +5,14 @@ import { BrowserRouter, Route, Routes } from "react-router-dom";
 import EditCourse from "./pages/edit/EditCourse";
 import DetailsCourse from "./pages/details/DetailsCourse";
 import CreateCourse from "./pages/create/CreateCourse";
+import { useContext } from "react";
+import ThemeContext from "./Context/ThemeContext";
 function App() {
+  const {darkMode} = useContext(ThemeContext)
   return (
     <>
+    <div className={darkMode ? 'body-dark': 'body-light'}>
+
       <BrowserRouter>
         <Routes>
           <Route path="/" element={<Header />}>
@@ -18,6 +23,7 @@ function App() {
           </Route>
         </Routes>
       </BrowserRouter>
+    </div>
     
     </>
   );

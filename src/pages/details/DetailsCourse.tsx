@@ -2,8 +2,10 @@ import { useNavigate, useParams } from 'react-router-dom';
 import useGetCourseById from '../../Hooks/useGetCourseById';
 import './View.css'
 import { ButtonCancel } from '../../components/ButtonsForms';
+import { useContext } from 'react';
+import ThemeContext from '../../Context/ThemeContext';
 function DetailsCourse() {
-
+  const {darkMode} = useContext(ThemeContext);
   const { id } = useParams<{ id?: string }>();
   const { course } = id ? useGetCourseById(id) : { course: null };
 
@@ -16,9 +18,9 @@ function DetailsCourse() {
 
   return (
     <>
-      <div className="MainView">
+      <div className={`MainView ${darkMode ? 'dark-mode' : ''}`}>
         <p>Course {course?.id} {course?.course_code} Details</p>
-        <form className='Form-View'>
+        <form className={`Form-View ${darkMode ? 'dark-mode' : ''}`}>
           <div className="view">
             <span>Course Name </span>
             <b>{course?.name || ''}</b>

@@ -12,7 +12,7 @@
   font-size: x-large;
   font-weight: bold;
   }
-.Form-Style {
+ .Form-Style {
   grid-row: 2/3 ;
   width: 80%;
   height: 120%;
@@ -168,4 +168,20 @@ label {
  .button-group button{
   padding-bottom: 1rem;
  }
+}
+
+
+
+/* Estilos para modo oscuro */
+
+.body-Form.dark-mode{
+  color: white;
+  
+}
+
+
+.Form-Style.dark-mode {
+  background-color: #0C2327; 
+  box-shadow: -7px 7px 1px 0px rgba(0, 0, 0, 0.108);
+  
 }

@@ -44,6 +44,8 @@
   }
   .main {
     padding: 0 4% 0 4%;
+    background-color: #AEC6CB;
+    
   }
   .hidden{
     display: none;
@@ -80,4 +82,30 @@
   transform: translateY(-50%);
   width: 20px;
   height: 20px;
+}
+
+
+/* Estilos para el tema oscuro */
+.main-dark{
+  background-color: #344C51;
+  padding: 0 4% 0 4%;
+ 
+}
+.main-dark .Table-container {
+  background-color: #0C2327;
+  color: #ffffff; 
+  
+}
+
+.main-dark .CourseStatus {
+  color: #ffffff; 
+  background-color: #666666; 
+}
+
+.main-dark .Search-input {
+  background-color: #666666; 
+}
+
+.main-dark .Search-input::placeholder {
+  color: #b0b0b0; 
 }

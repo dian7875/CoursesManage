@@ -6,11 +6,14 @@ import Course from "../../types/courses";
 import { useNavigate } from "react-router-dom";
 import "./Forms.css";
 import { ButtonAcept, ButtonCancel } from "../../components/ButtonsForms";
-import { useState } from "react";
+import { useContext, useState } from "react";
 import courseSchema from "../../validations/courseSchema";
 import { useSubmitCourse } from "../../Hooks/useSubmitCourse";
+import ThemeContext from "../../Context/ThemeContext";
 
 function CreateCourse() {
+
+  const {darkMode} = useContext(ThemeContext);
 
   const { register, handleSubmit, setValue, formState: { errors } } = useForm<Course>({
     resolver: zodResolver(courseSchema)
@@ -45,10 +48,10 @@ function CreateCourse() {
         rel="stylesheet"
       ></link>
 
-      <div className="body-Form">
+      <div className={`body-Form ${darkMode ? 'dark-mode' : ''}`}>
         <p>Add New Course</p>
 
-        <form className="Form-Style" onSubmit={handleSubmit(onSubmit)}>
+        <form className={`Form-Style ${darkMode ? 'dark-mode' : ''}`} onSubmit={handleSubmit(onSubmit)}>
           <div className="input-group">
             <label htmlFor="name">Course Name</label>
             <input type="text" id="name" {...register("name")} />

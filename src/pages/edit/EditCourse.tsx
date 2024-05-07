@@ -2,8 +2,11 @@ import { useParams } from "react-router-dom";
 import { ButtonAcept, ButtonCancel } from "../../components/ButtonsForms";
 import "./edit.css";
 import useEditCourse from "../../Hooks/useEditCourse";
+import { useContext } from "react";
+import ThemeContext from "../../Context/ThemeContext";
 
 function EditCourse() {
+  const {darkMode} = useContext(ThemeContext);
 
   const onCancel = () => {
     navigate("/");
@@ -21,12 +24,12 @@ function EditCourse() {
   } = useEditCourse(id || "");
   return (
     <>
-      <div className="Edit-Form">
+      <div className={`Edit-Form ${darkMode ? 'dark-mode' : ''}`}>
         <p>
           Edit Course {course?.id}
           {course?.course_code}
         </p>
-        <form className="Edit-Style" onSubmit={handleSubmit(onSubmit)}>
+        <form className={`Edit-Style ${darkMode ? 'dark-mode' : ''}`} onSubmit={handleSubmit(onSubmit)}>
           <div className="item">
             <span>Course Name </span>
             <input

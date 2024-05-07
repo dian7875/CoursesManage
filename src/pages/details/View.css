@@ -45,3 +45,13 @@
   }
 
  }
+
+ /* Estilos para el tema oscuro */
+.MainView.dark-mode{
+  color: white;
+}
+ .Form-View.dark-mode{
+  color: white;
+  background-color: #0C2327;
+  box-shadow: -7px 7px 1px 0px rgba(0, 0, 0, 0.108)
+ }
