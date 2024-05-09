@@ -100,6 +100,10 @@
   color: #ffffff; 
   
 }
+.main-dark .Table-container  tbody tr:hover {
+  box-shadow: 0 0 10px 30px rgba(47, 141, 114, 0.3);
+  background-color: black;
+}
 
 .main-dark .CourseStatus {
   color: #ffffff; 
