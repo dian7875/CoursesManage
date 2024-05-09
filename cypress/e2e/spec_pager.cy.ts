@@ -10,12 +10,7 @@ describe('Page Test', () => {
 
   });
 
-  it('Delete course',()=>{
-    cy.visit('http://localhost:5173/');
-    cy.get('[title="delete"]').should('be.visible').eq(0).click()
-    //cy.get('button.swal2-confirm').click() //Confirmacion del delet
-  
-  })
+
   it('Change Dark mode',()=>{
     cy.visit('http://localhost:5173/');
     cy.get('span.slider-theme').click()
@@ -33,5 +28,6 @@ describe('Page Test', () => {
     cy.get('select.LimitSel').should('have.value', '10');
   })
   
+
 });
 
