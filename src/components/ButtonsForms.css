@@ -40,3 +40,13 @@
     .swal2-actions {
       flex-direction: row-reverse !important;
     }
+  
+    .dark-mode .cancelButton{
+      border: solid 1px #063643e4;
+      color: #000000;
+    }
+    .dark-mode .sendButton{
+      background-color: #5f93be;
+      border: solid 1px #ffffff;
+      color: #ffffff;
+    }
