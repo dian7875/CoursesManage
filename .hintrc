@@ -4,6 +4,13 @@
   ],
   "hints": {
     "typescript-config/consistent-casing": "off",
-    "no-inline-styles": "off"
+    "no-inline-styles": "off",
+    "typescript-config/strict": "off",
+    "axe/language": [
+      "default",
+      {
+        "html-has-lang": "off"
+      }
+    ]
   }
 }

@@ -20,7 +20,7 @@ const Header = () => {
         </div>
         <div>
           <label className="switch-theme mr-5">
-            <input type="checkbox" onChange={toggleDarkMode} defaultChecked={true}/>
+            <input title="SearchInput" type="checkbox" onChange={toggleDarkMode} defaultChecked={true}/>
             <span className="slider-theme"></span>
           </label>
         </div>

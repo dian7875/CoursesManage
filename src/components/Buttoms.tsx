@@ -11,7 +11,7 @@ const Buttoms = ({ id ,refreshCourses}: { id: string, refreshCourses: () => void
     <>
       <div className="flex justify-center items-center gap-2">
         <Link to={`/view/${id}`}>
-          <button className="hover:bg-sky-700 text-sm bg-sky-600 text-white px-2 py-1 rounded-lg shadow-lg">
+          <button title='view' className="hover:bg-sky-700 text-sm bg-sky-600 text-white px-2 py-1 rounded-lg shadow-lg">
             View
           </button>
         </Link>
@@ -20,7 +20,7 @@ const Buttoms = ({ id ,refreshCourses}: { id: string, refreshCourses: () => void
             Edit
           </button>
         </Link>
-        <button onClick={handleClick} className="hover:bg-red-700 text-sm bg-neutral-600 text-white px-2 py-1 rounded-lg shadow-lg">
+        <button title='delete' onClick={handleClick} className="hover:bg-red-700 text-sm bg-neutral-600 text-white px-2 py-1 rounded-lg shadow-lg">
           Delete
         </button>
       </div>
