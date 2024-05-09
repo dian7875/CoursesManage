@@ -4,9 +4,12 @@ import "./edit.css";
 import useEditCourse from "../../Hooks/useEditCourse";
 import { useContext } from "react";
 import ThemeContext from "../../Context/ThemeContext";
+import CoursesContext from "../../Context/CoursesContext";
+import image from '../../assets/Loanding_Gif.gif'
 
 function EditCourse() {
   const {darkMode} = useContext(ThemeContext);
+  const {loading}= useContext(CoursesContext);
 
   const onCancel = () => {
     navigate("/");
@@ -22,6 +25,13 @@ function EditCourse() {
     toggleStatus,
     onSubmit,
   } = useEditCourse(id || "");
+  if (loading) {
+    return (
+      <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', height: '100vh' }}>
+       <img src={image} alt="" />
+      </div>
+    );
+  } else{
   return (
     <>
       <div className={`Edit-Form ${darkMode ? 'dark-mode' : ''}`}>
@@ -112,6 +122,7 @@ function EditCourse() {
       </div>
     </>
   );
+ }
 }
 
 export default EditCourse;

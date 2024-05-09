@@ -8,17 +8,17 @@ import { useContext, useEffect, useState } from "react";
 import useGetAllCoursesPages from "../Hooks/useGetAllCoursesPages";
 import CoursesContext from "../Context/CoursesContext";
 import ThemeContext from "../Context/ThemeContext";
+import image from "../assets/Loanding_Gif.gif";
 
 function Table() {
   const { courses, refreshCourses } = useGetAllCourses();
   const [filteredCourses, setFilteredCourses] = useState(courses);
   const { maxPageNumber } = useGetAllCoursesPages();
   const { pageNumber, setPageNumber } = useContext(CoursesContext);
-  const { setMaxPageNumber } = useContext(CoursesContext);
+  const { setMaxPageNumber, loading } = useContext(CoursesContext);
 
-  
 
-   const {darkMode, toggleDarkMode} = useContext(ThemeContext) 
+   const {darkMode} = useContext(ThemeContext) 
  
 
   
@@ -37,7 +37,13 @@ function Table() {
   const refreshCurrentPage = () => {
    refreshCourses();
   };
-
+  if (loading) {
+    return (
+      <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', height: '100vh' }}>
+       <img src={image} alt="" />
+      </div>
+    );
+  } else{
   return (
     <>
       <div className={darkMode ? 'main-dark' : 'main'}>
@@ -88,6 +94,8 @@ function Table() {
       </div>
     </>
   );
+ }
+
 }
 
 export default Table;
