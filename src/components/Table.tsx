@@ -18,7 +18,7 @@ function Table() {
 
   
 
-   const {darkMode, toggleDarkMode} = useContext(ThemeContext) 
+   const {darkMode} = useContext(ThemeContext) 
  
 
   
@@ -48,7 +48,7 @@ function Table() {
           <caption className="Search-Caption"><SearchForm  refreshCurrentPage={refreshCurrentPage}  setFilteredCourses={setFilteredCourses} /></caption>
           <caption className="cap2">
             <Link to={"/create"}>
-              <button className="text-sm hover:bg-cyan-700 bg-cyan-900	 text-white py-2 px-1 rounded-lg shadow-lg">
+              <button id="create-btn" className="text-sm hover:bg-cyan-700 bg-cyan-900	 text-white py-2 px-1 rounded-lg shadow-lg">
                 Agregar nuevo
               </button>
             </Link>
