@@ -5,7 +5,7 @@
     border-collapse: collapse;
     background-color: whitesmoke;
     border-radius: 20px;
-    box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.5)
+    box-shadow: 7px 0px 1px 0px rgb(119, 159, 166);
   }
 
   .Table-container caption {
@@ -95,23 +95,24 @@
 
 /* Estilos para el tema oscuro */
 .main-dark{
-  background-color: #344C51;
+  background-color: #121212;
   padding: 0 4% 0 4%;
  
 }
 .main-dark .Table-container {
-  background-color: #0C2327;
+  background-color: #1f1e24;
   color: #ffffff; 
-  
+  box-shadow: none;
 }
 .main-dark .Table-container  tbody tr:hover {
-  box-shadow: 0 0 10px 30px rgba(47, 141, 114, 0.3);
-  background-color: black;
+ 
+  background-color:  #121212;
 }
 
 .main-dark .CourseStatus {
   color: #ffffff; 
   background-color: #666666; 
+
 }
 
 .main-dark .Search-input {

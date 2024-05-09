@@ -28,4 +28,9 @@
 
 .Rotate {
   transform: scale(-1);
+  
+}
+
+.main-dark .Pager {
+filter: invert(100%);
 }
