@@ -15,13 +15,7 @@ function Table() {
   const { maxPageNumber } = useGetAllCoursesPages();
   const { pageNumber, setPageNumber } = useContext(CoursesContext);
   const { setMaxPageNumber } = useContext(CoursesContext);
-
-  
-
-   const {darkMode, toggleDarkMode} = useContext(ThemeContext) 
- 
-
-  
+   const {darkMode} = useContext(ThemeContext)  
   useEffect(() => {
     setFilteredCourses(courses);
   }, [courses]);
@@ -44,11 +38,10 @@ function Table() {
       
         <table id="TablaResults" className="Table-container">
           <caption className={darkMode?"text-white":''}>List Of Courses Of University Three Duckling</caption>
-          
           <caption className="Search-Caption"><SearchForm  refreshCurrentPage={refreshCurrentPage}  setFilteredCourses={setFilteredCourses} /></caption>
           <caption className="cap2">
             <Link to={"/create"}>
-              <button className="text-sm hover:bg-cyan-700 bg-cyan-900	 text-white py-2 px-1 rounded-lg shadow-lg">
+              <button className="text-sm hover:bg-cyan-700 bg-cyan-900 text-white py-2 px-1 rounded-lg shadow-lg">
                 Agregar nuevo
               </button>
             </Link>
