@@ -56,7 +56,7 @@ function CreateCourse() {
             <label htmlFor="name">Course Name</label>
             <input type="text" id="name" {...register("name")} />
             {errors.name && (
-              <p className="error-message">{errors.name.message}</p>
+              <span className="error-message ">{errors.name.message}</span>
             )}
           </div>
 
@@ -64,7 +64,7 @@ function CreateCourse() {
             <label htmlFor="professor">Teacher’s Name</label>
             <input type="text" id="professor" {...register("professor")} />
             {errors.professor && (
-              <p className="error-message"> {errors.professor.message}</p>
+              <span className="error-message"> {errors.professor.message}</span>
             )}
           </div>
 
@@ -72,7 +72,7 @@ function CreateCourse() {
             <label htmlFor="course_code"> Course Code</label>
             <input type="text" id="course_code" {...register("course_code")} />
             {errors.course_code && (
-              <p className="error-message">{errors.course_code.message}</p>
+              <span className="error-message">{errors.course_code.message}</span>
             )}
           </div>
 
@@ -84,7 +84,7 @@ function CreateCourse() {
               {...register("classroom_number")}
             />
             {errors.classroom_number && (
-              <p className="error-message">{errors.classroom_number.message}</p>
+              <span className="error-message">{errors.classroom_number.message}</span>
             )}
           </div>
 
@@ -100,7 +100,7 @@ function CreateCourse() {
               <span className="slider"></span>
             </label>
             {errors.status && (
-              <p className="error-message">{errors.status.message}</p>
+              <span className="error-message">{errors.status.message}</span>
             )}
           </div>
 
@@ -112,7 +112,7 @@ function CreateCourse() {
               {...register("maximun_quota")}
             />
             {errors.maximun_quota && (
-              <p className="error-message">{errors.maximun_quota.message}</p>
+              <span className="error-message">{errors.maximun_quota.message}</span>
             )}
           </div>
 
