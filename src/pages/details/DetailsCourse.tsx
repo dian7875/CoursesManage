@@ -4,10 +4,13 @@ import './View.css'
 import { ButtonCancel } from '../../components/ButtonsForms';
 import { useContext } from 'react';
 import ThemeContext from '../../Context/ThemeContext';
+import CoursesContext from '../../Context/CoursesContext';
+import image from '../../assets/Loanding_Gif.gif'
 function DetailsCourse() {
   const {darkMode} = useContext(ThemeContext);
   const { id } = useParams<{ id?: string }>();
   const { course } = id ? useGetCourseById(id) : { course: null };
+  const {loading} = useContext(CoursesContext);
 
   const navigate = useNavigate();
 
@@ -15,7 +18,13 @@ function DetailsCourse() {
     navigate('/');
   };
 
-
+  if (loading) {
+    return (
+      <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', height: '100vh' }}>
+       <img src={image} alt="" />
+      </div>
+    );
+  } else{
   return (
     <>
       <div className={`MainView ${darkMode ? 'dark-mode' : ''}`}>
@@ -57,6 +66,7 @@ function DetailsCourse() {
       </div>
     </>
   );
+ }
 }
 
 export default DetailsCourse

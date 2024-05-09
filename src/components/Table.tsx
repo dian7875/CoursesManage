@@ -8,17 +8,17 @@ import { useContext, useEffect, useState } from "react";
 import useGetAllCoursesPages from "../Hooks/useGetAllCoursesPages";
 import CoursesContext from "../Context/CoursesContext";
 import ThemeContext from "../Context/ThemeContext";
+import image from "../assets/Loanding_Gif.gif";
 
 function Table() {
   const { courses, refreshCourses } = useGetAllCourses();
   const [filteredCourses, setFilteredCourses] = useState(courses);
   const { maxPageNumber } = useGetAllCoursesPages();
   const { pageNumber, setPageNumber } = useContext(CoursesContext);
-  const { setMaxPageNumber } = useContext(CoursesContext);
+  const { setMaxPageNumber, loading } = useContext(CoursesContext);
 
-  
 
-   const {darkMode, toggleDarkMode} = useContext(ThemeContext) 
+   const {darkMode} = useContext(ThemeContext) 
  
 
   
@@ -37,18 +37,23 @@ function Table() {
   const refreshCurrentPage = () => {
    refreshCourses();
   };
-
+  if (loading) {
+    return (
+      <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', height: '100vh' }}>
+       <img src={image} alt="" />
+      </div>
+    );
+  } else{
   return (
     <>
       <div className={darkMode ? 'main-dark' : 'main'}>
       
         <table id="TablaResults" className="Table-container">
           <caption className={darkMode?"text-white":''}>List Of Courses Of University Three Duckling</caption>
-          
           <caption className="Search-Caption"><SearchForm  refreshCurrentPage={refreshCurrentPage}  setFilteredCourses={setFilteredCourses} /></caption>
           <caption className="cap2">
             <Link to={"/create"}>
-              <button className="text-sm hover:bg-cyan-700 bg-cyan-900	 text-white py-2 px-1 rounded-lg shadow-lg">
+              <button id="create-btn" className="text-sm hover:bg-cyan-700 bg-cyan-900	 text-white py-2 px-1 rounded-lg shadow-lg">
                 Agregar nuevo
               </button>
             </Link>
@@ -88,6 +93,8 @@ function Table() {
       </div>
     </>
   );
+ }
+
 }
 
 export default Table;
