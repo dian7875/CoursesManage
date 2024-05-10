@@ -4,15 +4,14 @@ import Pager from "./Pager";
 import "./table.css";
 import Buttoms from "./Buttoms";
 import SearchForm from "./SearchForm";
-import { useContext, useEffect, useState } from "react";
+import { useContext, useEffect } from "react";
 import useGetAllCoursesPages from "../Hooks/useGetAllCoursesPages";
 import CoursesContext from "../Context/CoursesContext";
 import ThemeContext from "../Context/ThemeContext";
 import image from "../assets/Loanding_Gif.gif";
 
 function Table() {
-  const { courses, refreshCourses } = useGetAllCourses();
-  const [Courses, setCourses] = useState(courses);
+  const { courses, refreshCourses, setCourses} = useGetAllCourses();
   const { maxPageNumber } = useGetAllCoursesPages();
   const { pageNumber, setPageNumber } = useContext(CoursesContext);
   const { setMaxPageNumber, loading } = useContext(CoursesContext);
@@ -66,7 +65,7 @@ function Table() {
               </tr>
             </thead>
             <tbody>
-              {Courses.map((course) => (
+              {courses.map((course) => (
                 <tr key={course.id}>
                   <td>{course.id}</td>
                   <td>{course.professor}</td>

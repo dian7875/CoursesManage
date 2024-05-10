@@ -27,7 +27,7 @@ const useGetAllCourses = () => {
         getCourses();
     },[pageNumber, limit])
   
-    return { courses, refreshCourses: getCourses };
+    return { courses, refreshCourses: getCourses,setCourses};
 
 }
 
