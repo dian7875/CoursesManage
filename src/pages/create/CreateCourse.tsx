@@ -3,19 +3,29 @@ import { zodResolver } from "@hookform/resolvers/zod";
 import Course from "../../types/courses";
 import "./Forms.css";
 import { ButtonAcept, ButtonCancel } from "../../components/ButtonsForms";
-import { useContext } from "react";
+import { useContext, useState } from "react";
 import courseSchema from "../../validations/courseSchema";
 import { useSubmitCourse } from "../../Hooks/useSubmitCourse";
 import ThemeContext from "../../Context/ThemeContext";
-import { toggleStatus } from "../useClickEvents";
 
 function CreateCourse() {
 
   const {darkMode} = useContext(ThemeContext);
 
-  const { register, handleSubmit, formState: { errors } } = useForm<Course>({
+  const { register, handleSubmit, formState: { errors } , setValue } = useForm<Course>({
     resolver: zodResolver(courseSchema)
   });
+
+  const [status, setStatus] = useState<boolean>(true);
+  const toggleStatus = () => {
+    setStatus(!status);
+    if (status) {
+      setValue('status', true)
+    } else {
+      setValue('status', false)
+    }
+  };
+  
 
   const onSubmit = useSubmitCourse();
 

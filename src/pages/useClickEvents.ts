@@ -1,18 +1,5 @@
-import { useState } from "react";
 import { useForm } from "react-hook-form";
 import Course from "../types/courses";
-
-export const toggleStatus = () => {
-    const {setValue} = useForm<Course>({})
-    const [status, setStatus] = useState<boolean>(true);
-
-    setStatus(!status);
-    if (status) {
-      setValue("status", true);
-    } else {
-      setValue("status", false);
-    }
-  };
 
  export const handleChangeCR = (e: React.ChangeEvent<HTMLInputElement>) => {
     const {setValue, watch} = useForm<Course>({})

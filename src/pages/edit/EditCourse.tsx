@@ -2,14 +2,14 @@ import { useParams } from "react-router-dom";
 import { ButtonAcept, ButtonCancel } from "../../components/ButtonsForms";
 import "./edit.css";
 import useEditCourse from "../../Hooks/useEditCourse";
-import { useContext, useEffect} from "react";
+import { useContext, useEffect, useState} from "react";
 import ThemeContext from "../../Context/ThemeContext";
 import CoursesContext from "../../Context/CoursesContext";
 import image from '../../assets/Loanding_Gif.gif'
 import { useForm } from "react-hook-form";
 import Course from "../../types/courses";
 import useGetCourseById from "../../Hooks/useGetCourseById";
-import { handleChangeCR, handleChangeMQ, toggleStatus } from "../useClickEvents";
+import { handleChangeCR, handleChangeMQ} from "../useClickEvents";
 
 function EditCourse() {
 
@@ -22,6 +22,16 @@ function EditCourse() {
   const { id } = useParams<{ id?: string }>();
   
   const { course } = id ? useGetCourseById(id) : { course: null };
+
+  const [status, setStatus] = useState<boolean>(true);
+  const toggleStatus = () => {
+    setStatus(!status);
+    if (status) {
+      setValue('status', true)
+    } else {
+      setValue('status', false)
+    }
+  };
   
   
   useEffect(() => {
