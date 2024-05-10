@@ -12,7 +12,7 @@ import image from "../assets/Loanding_Gif.gif";
 
 function Table() {
   const { courses, refreshCourses } = useGetAllCourses();
-  const [filteredCourses, setFilteredCourses] = useState(courses);
+  const [Courses, setCourses] = useState(courses);
   const { maxPageNumber } = useGetAllCoursesPages();
   const { pageNumber, setPageNumber } = useContext(CoursesContext);
   const { setMaxPageNumber, loading } = useContext(CoursesContext);
@@ -20,7 +20,7 @@ function Table() {
   const { darkMode } = useContext(ThemeContext)
 
   useEffect(() => {
-    setFilteredCourses(courses);
+    setCourses(courses);
   }, [courses]);
 
   useEffect(() => {
@@ -47,7 +47,7 @@ function Table() {
 
           <table id="TablaResults" className="Table-container">
             <caption className={darkMode ? "text-white" : ''}>List Of Courses Of University Three Duckling</caption>
-            <caption className="Search-Caption"><SearchForm refreshCurrentPage={refreshCurrentPage} setFilteredCourses={setFilteredCourses} /></caption>
+            <caption className="Search-Caption"><SearchForm refreshCurrentPage={refreshCurrentPage} setFilteredCourses={setCourses} /></caption>
             <caption className="cap2">
               <Link to={"/create"}>
                 <button id="create-btn" className="text-sm hover:bg-cyan-700 bg-cyan-900	 text-white py-2 px-1 rounded-lg shadow-lg">
@@ -66,7 +66,7 @@ function Table() {
               </tr>
             </thead>
             <tbody>
-              {filteredCourses.map((course) => (
+              {Courses.map((course) => (
                 <tr key={course.id}>
                   <td>{course.id}</td>
                   <td>{course.professor}</td>
