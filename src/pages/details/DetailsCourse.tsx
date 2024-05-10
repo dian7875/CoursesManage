@@ -1,4 +1,4 @@
-import { useNavigate, useParams } from 'react-router-dom';
+import { useParams } from 'react-router-dom';
 import useGetCourseById from '../../Hooks/useGetCourseById';
 import './View.css'
 import { ButtonCancel } from '../../components/ButtonsForms';
@@ -12,11 +12,6 @@ function DetailsCourse() {
   const { course } = id ? useGetCourseById(id) : { course: null };
   const {loading} = useContext(CoursesContext);
 
-  const navigate = useNavigate();
-
-  const onCancel = () => {
-    navigate('/');
-  };
 
   if (loading) {
     return (
@@ -48,7 +43,7 @@ function DetailsCourse() {
           </div>
           <div className="view">
             <span>Course Status</span>
-            <b>{course?.status ? 'Open' : 'Close'}</b>
+            <b>{course?.status ? 'Open' : 'Closed'}</b>
           </div>
           <div className="view">
             <span>Space Available</span>
@@ -60,7 +55,7 @@ function DetailsCourse() {
             <b>{course?.classroom_number || ''}</b>
           </div>
           <div className='button_group'>
-            <ButtonCancel Title='Back' Event={onCancel} />
+            <ButtonCancel Title='Back'/>
           </div>
         </form>
       </div>

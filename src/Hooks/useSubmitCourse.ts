@@ -1,27 +1,16 @@
 import { useCallback } from 'react';
 import Course from '../types/courses';
 import '../components/alerts/alerts.css'
-import Swal from 'sweetalert2';
 import { createCourse } from '../Services/Courses/CourseService';
 import { useNavigate } from 'react-router-dom';
-import { correct, fail } from "../components/alerts/alerts";
+import { confirmAction, correct, fail } from "../components/alerts/alerts";
 
 export function useSubmitCourse() {
   const navigate = useNavigate();
   const onSubmit = useCallback(async (data: Course) => {
-    const result = await Swal.fire({
-      icon: "info",
-      title: `Create Course ${data.course_code} ${data.name}?`,
-      showCancelButton: true,
-      confirmButtonText: "Yes",
-      cancelButtonText: "No",
-      customClass: {
-        cancelButton: "custom-cancel-button",
-        confirmButton: "custom-confirm-button",
-      },
-    });
 
-    if (result.isConfirmed) {
+    const result = await confirmAction('Create Course:', data.course_code, data.name)
+    if (result) {
       try {
         if (typeof data.classroom_number === 'string') {
           data.classroom_number = parseInt(data.classroom_number) || 0;
@@ -34,14 +23,13 @@ export function useSubmitCourse() {
         );
         data.space_available = data.maximun_quota - data.current_registration;
         await createCourse(data);
-        
-        correct()
+        correct('This course has been successfully created')
         setTimeout(() => {
           navigate("/");
         }, 1000);
       } catch (error) {
         console.error("Error in create course", error);
-          fail()
+        fail()
       }
     }
   }, []);

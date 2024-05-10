@@ -17,11 +17,8 @@ function Table() {
   const { pageNumber, setPageNumber } = useContext(CoursesContext);
   const { setMaxPageNumber, loading } = useContext(CoursesContext);
 
+  const { darkMode } = useContext(ThemeContext)
 
-   const {darkMode} = useContext(ThemeContext) 
- 
-
-  
   useEffect(() => {
     setFilteredCourses(courses);
   }, [courses]);
@@ -33,67 +30,67 @@ function Table() {
     }
   }, [refreshCourses]);
 
-
   const refreshCurrentPage = () => {
-   refreshCourses();
+    refreshCourses();
   };
+
   if (loading) {
     return (
       <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', height: '100vh' }}>
-       <img src={image} alt="" />
+        <img src={image} alt="" />
       </div>
     );
-  } else{
-  return (
-    <>
-      <div className={darkMode ? 'main-dark' : 'main'}>
-      
-        <table id="TablaResults" className="Table-container">
-          <caption className={darkMode?"text-white":''}>List Of Courses Of University Three Duckling</caption>
-          <caption className="Search-Caption"><SearchForm  refreshCurrentPage={refreshCurrentPage}  setFilteredCourses={setFilteredCourses} /></caption>
-          <caption className="cap2">
-            <Link to={"/create"}>
-              <button id="create-btn" className="text-sm hover:bg-cyan-700 bg-cyan-900	 text-white py-2 px-1 rounded-lg shadow-lg">
-                Agregar nuevo
-              </button>
-            </Link>
-          </caption>
-          <thead>
-            <tr>
-              <th>ID</th>
-              <th>Teacher’s Name</th>
-              <th>Course Name </th>
-              <th>Course Status</th>
-              <th>Space Available</th>
-              <th>Actions</th>
-            </tr>
-          </thead>
-          <tbody>
-            {filteredCourses.map((course) => (
-              <tr key={course.id}>
-                <td>{course.id}</td>
-                <td>{course.professor}</td>
-                <td>{course.name}</td>
-                <td className="columStatus">
-                  {course.status ? (
-                    <div className="CourseStatus">Open</div>
-                  ) : (
-                    <div className="CourseStatus">Closed</div>
-                  )}
-                </td>
-                <td>{course.space_available}</td>
-                <td>
-                  <Buttoms id={course.id} refreshCourses={refreshCourses} />
-                </td>
+  } else {
+    return (
+      <>
+        <div className={darkMode ? 'main-dark' : 'main'}>
+
+          <table id="TablaResults" className="Table-container">
+            <caption className={darkMode ? "text-white" : ''}>List Of Courses Of University Three Duckling</caption>
+            <caption className="Search-Caption"><SearchForm refreshCurrentPage={refreshCurrentPage} setFilteredCourses={setFilteredCourses} /></caption>
+            <caption className="cap2">
+              <Link to={"/create"}>
+                <button id="create-btn" className="text-sm hover:bg-cyan-700 bg-cyan-900	 text-white py-2 px-1 rounded-lg shadow-lg">
+                  Agregar nuevo
+                </button>
+              </Link>
+            </caption>
+            <thead>
+              <tr>
+                <th>ID</th>
+                <th>Teacher’s Name</th>
+                <th>Course Name </th>
+                <th>Course Status</th>
+                <th>Space Available</th>
+                <th>Actions</th>
               </tr>
-            ))}
-          </tbody>
-        </table>
-        <Pager maxPageNumber={maxPageNumber} />
-      </div>
-    </>
-  );
- }
+            </thead>
+            <tbody>
+              {filteredCourses.map((course) => (
+                <tr key={course.id}>
+                  <td>{course.id}</td>
+                  <td>{course.professor}</td>
+                  <td>{course.name}</td>
+                  <td className="columStatus">
+                    {course.status ? (
+                      <div className="CourseStatus">Open</div>
+                    ) : (
+                      <div className="CourseStatus">Closed</div>
+                    )}
+                  </td>
+                  <td>{course.space_available}</td>
+                  <td>
+                    <Buttoms id={course.id} refreshCourses={refreshCourses} />
+                  </td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+          <Pager maxPageNumber={maxPageNumber} />
+        </div>
+      </>
+    );
+  }
 
 }
 

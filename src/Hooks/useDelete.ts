@@ -1,27 +1,16 @@
-import Swal from "sweetalert2";
 import "../components/alerts/alerts.css"
 import { deleteCourse } from "../Services/Courses/CourseService";
-import { fail, recharged } from "../components/alerts/alerts";
+import { confirmAction, correct, fail, recharged } from "../components/alerts/alerts";
 
 const useDelete = async (id: string, refreshCourses: () => void): Promise<void> => {
 
   try {
-    const result = await Swal.fire({
-      icon: 'info',
-      title: 'Are you sure you want to do this action?',
-      showCancelButton: true,
-      confirmButtonText: 'Yes',
-      cancelButtonText: 'No',
-      customClass: {
-        cancelButton: 'custom-cancel-button',
-        confirmButton: 'custom-confirm-button',
-      },
-    });
-
-    if (result.isConfirmed) {
+    const result = await confirmAction('Are you sure you want to delete this course?')
+    if (result) {
       await deleteCourse(id);
       recharged(1000, `Delete Course ${id}`);
       setTimeout(() => {
+        correct('Course deleted successfully');
         refreshCourses();
       }, 1500);
     }
