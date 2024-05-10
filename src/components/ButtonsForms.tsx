@@ -1,3 +1,4 @@
+import { useNavigate } from "react-router-dom";
 import "./ButtonsForms.css";
 
 export const ButtonAcept = ({
@@ -16,14 +17,16 @@ export const ButtonAcept = ({
 
 export const ButtonCancel = ({
   Title,
-  Event,
 }: {
   Title: string;
-  Event: () => void;
 }) => {
+  const navigate = useNavigate();
+  const onCancel = () => {
+    navigate("/");
+  };
   return (
     <>
-      <button className="cancelButton" type="button" onClick={Event}>
+      <button className="cancelButton" type="button" onClick={onCancel}>
         {Title}
       </button>
     </>

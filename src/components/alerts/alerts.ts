@@ -1,10 +1,10 @@
 import Swal from "sweetalert2";
 
-export const correct = (): void =>{
+export const correct = (acction:string): void =>{
     Swal.fire({
       position: "center",
       icon: "success",
-      title: "This Course has been saved",
+      title: `${acction}`,
       showConfirmButton: false,
       timer: 1500
     });
@@ -27,7 +27,6 @@ export const noMorePages = (): void => {
   });
 }
 export const recharged = (timer:number, title:string ): void => {
-  let timerInterval: number | undefined;
 
   Swal.fire({
     title: title,
@@ -35,21 +34,34 @@ export const recharged = (timer:number, title:string ): void => {
     timer: timer,
     timerProgressBar: true,
     didOpen: () => {
-      Swal.showLoading();
+      Swal.showLoading(); //=> Este error nunca supe que era, como tal no espera argumentos
       const timer = Swal.getPopup()?.querySelector("b");
       if (timer) {
-        timerInterval = setInterval(() => {
+        setInterval(() => {
           const timerLeft = Swal.getTimerLeft();
           if (timerLeft) {
             timer.textContent = `${timerLeft}`;
           }
         }, 100);
       }
-    },
-    willClose: () => {
-      if (timerInterval) {
-        clearInterval(timerInterval);
-      }
     }
   })
 };
+
+const confirmAction = async (accion: string, course_code?: string, name?: string )=> {
+ const result = await Swal.fire({
+    icon: "info",
+    title: `${accion} ${name} ${course_code}?`,
+    showCancelButton: true,
+    confirmButtonText: "Yes",
+    cancelButtonText: "No",
+    customClass: {
+      cancelButton: "custom-cancel-button",
+      confirmButton: "custom-confirm-button",
+    },
+  });
+
+  return result.isConfirmed;
+  
+}
+export{confirmAction}

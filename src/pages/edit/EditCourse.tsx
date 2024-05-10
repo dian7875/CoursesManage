@@ -2,29 +2,47 @@ import { useParams } from "react-router-dom";
 import { ButtonAcept, ButtonCancel } from "../../components/ButtonsForms";
 import "./edit.css";
 import useEditCourse from "../../Hooks/useEditCourse";
-import { useContext } from "react";
+import { useContext, useEffect} from "react";
 import ThemeContext from "../../Context/ThemeContext";
 import CoursesContext from "../../Context/CoursesContext";
 import image from '../../assets/Loanding_Gif.gif'
+import { useForm } from "react-hook-form";
+import Course from "../../types/courses";
+import useGetCourseById from "../../Hooks/useGetCourseById";
+import { handleChangeCR, handleChangeMQ, toggleStatus } from "../useClickEvents";
 
 function EditCourse() {
+
   const {darkMode} = useContext(ThemeContext);
+
   const {loading}= useContext(CoursesContext);
 
-  const onCancel = () => {
-    navigate("/");
-  };
+  const {handleSubmit, register, setValue} = useForm<Course>({});
+  
   const { id } = useParams<{ id?: string }>();
-  const {
-    navigate,
-    course,
-    handleSubmit,
-    register,
-    handleCurrentRegistrationChange,
-    handleMaximumQuotaChange,
-    toggleStatus,
-    onSubmit,
-  } = useEditCourse(id || "");
+  
+  const { course } = id ? useGetCourseById(id) : { course: null };
+  
+  
+  useEffect(() => {
+    if (course) {
+      setValue('name', course.name || '');
+      setValue('status', course.status);
+      setValue('space_available', course.space_available);
+      setValue('maximun_quota', course.maximun_quota);
+      setValue('professor', course.professor || '');
+      setValue('course_code', course.course_code || '');
+      setValue('classroom_number', course.classroom_number);
+      setValue('current_registration', course.current_registration);
+      setValue('id', course.id || '');
+    }
+  }, [course, setValue]);
+ 
+ 
+  const {onSubmit} = useEditCourse();
+
+
+
   if (loading) {
     return (
       <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', height: '100vh' }}>
@@ -79,14 +97,14 @@ function EditCourse() {
                 title="Edit Field"
                 type="number"
                 {...register("current_registration")}
-                onChange={handleCurrentRegistrationChange}
+                onChange={handleChangeCR}
               />
               /
               <input
                 title="Edit Field"
                 type="number"
                 {...register("maximun_quota")}
-                onChange={handleMaximumQuotaChange}
+                onChange={handleChangeMQ}
               />
             </div>
           </div>
@@ -113,7 +131,7 @@ function EditCourse() {
           </div>
 
           <div className="button-group2">
-            <ButtonCancel Title="Cancel" Event={onCancel} />
+            <ButtonCancel Title="Cancel"/>
             <ButtonAcept
               Title="Send"
             />

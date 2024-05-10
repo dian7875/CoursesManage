@@ -1,42 +1,24 @@
-/* eslint-disable @typescript-eslint/no-explicit-any */
-
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import Course from "../../types/courses";
-import { useNavigate } from "react-router-dom";
 import "./Forms.css";
 import { ButtonAcept, ButtonCancel } from "../../components/ButtonsForms";
-import { useContext, useState } from "react";
+import { useContext } from "react";
 import courseSchema from "../../validations/courseSchema";
 import { useSubmitCourse } from "../../Hooks/useSubmitCourse";
 import ThemeContext from "../../Context/ThemeContext";
+import { toggleStatus } from "../useClickEvents";
 
 function CreateCourse() {
 
   const {darkMode} = useContext(ThemeContext);
 
-  const { register, handleSubmit, setValue, formState: { errors } } = useForm<Course>({
+  const { register, handleSubmit, formState: { errors } } = useForm<Course>({
     resolver: zodResolver(courseSchema)
   });
 
   const onSubmit = useSubmitCourse();
 
-  const [status, setStatus] = useState<boolean>(true);
-
-  const toggleStatus = () => {
-    setStatus(!status);
-    if (status) {
-      setValue("status", true);
-    } else {
-      setValue("status", false);
-    }
-  };
-
-  const navigate = useNavigate();
-
-  const onCancel = () => {
-    navigate("/");
-  };
   return (
     <>
       <link
@@ -118,7 +100,7 @@ function CreateCourse() {
 
        
           <div className="button-group">
-            <ButtonCancel Title="Cancel" Event={onCancel} />
+            <ButtonCancel Title="Cancel"/>
             <ButtonAcept
               Title="Save"
             />
