@@ -83,7 +83,7 @@ function EditCourse() {
           <div className="item">
             <span>Course Name </span>
             <input
-              title="Edit Field"
+              title="CourseName"
               type="text"
               {...register('name')}
             />
@@ -91,7 +91,7 @@ function EditCourse() {
           <div className="item">
             <span>Course Code</span>
             <input
-              title="Edit Field"
+              title="CourseCode"
               type="text"
               {...register("course_code")}
             />
@@ -99,7 +99,7 @@ function EditCourse() {
           <div className="item">
             <span>Teacher’s Name</span>
             <input
-              title="Edit Field"
+              title="professor"
               type="text"
               {...register('professor')}
             />
@@ -107,7 +107,7 @@ function EditCourse() {
           <div className="item">
             <span>Classroom Number</span>
             <input
-              title="Edit Field"
+              title="classNumber"
               type="number"
               {...register("classroom_number")}
             />
@@ -116,14 +116,14 @@ function EditCourse() {
             <div className="Text"> <span>Current Registration<span> / </span>Maximun Quota</span></div>
             <div className="EditField">
               <input
-                title="Edit Field"
+                title="currentRe"
                 type="number"
                 {...register("current_registration")}
                 onChange={handleChangeCR}
               />
               /
               <input
-                title="Edit Field"
+                title="maximunquota"
                 type="number"
                 {...register("maximun_quota")}
                 onChange={handleChangeMQ}
@@ -134,7 +134,7 @@ function EditCourse() {
             <span>Space Available</span>
             <input
               readOnly
-              title="Edit Field"
+              title="space"
               type="number"
               {...register("space_available")}
             />
