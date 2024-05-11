@@ -83,6 +83,7 @@ function EditCourse() {
           <div className="item">
             <span>Course Name </span>
             <input
+            required
               title="CourseName"
               type="text"
               {...register('name')}
@@ -91,6 +92,7 @@ function EditCourse() {
           <div className="item">
             <span>Course Code</span>
             <input
+            required
               title="CourseCode"
               type="text"
               {...register("course_code")}
@@ -99,6 +101,7 @@ function EditCourse() {
           <div className="item">
             <span>Teacher’s Name</span>
             <input
+            required
               title="professor"
               type="text"
               {...register('professor')}
@@ -107,6 +110,7 @@ function EditCourse() {
           <div className="item">
             <span>Classroom Number</span>
             <input
+            required
               title="classNumber"
               type="number"
               {...register("classroom_number")}
@@ -116,6 +120,7 @@ function EditCourse() {
             <div className="Text"> <span>Current Registration<span> / </span>Maximun Quota</span></div>
             <div className="EditField">
               <input
+              required
                 title="currentRe"
                 type="number"
                 {...register("current_registration")}
@@ -123,6 +128,7 @@ function EditCourse() {
               />
               /
               <input
+              required
                 title="maximunquota"
                 type="number"
                 {...register("maximun_quota")}
@@ -134,6 +140,7 @@ function EditCourse() {
             <span>Space Available</span>
             <input
               readOnly
+              required
               title="space"
               type="number"
               {...register("space_available")}
