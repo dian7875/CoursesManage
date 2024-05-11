@@ -31,14 +31,6 @@ function CreateCourse() {
 
   return (
     <>
-      <link
-        href="https://fonts.googleapis.com/css2?family=Roboto:wght@700&display=swap"
-        rel="stylesheet"
-      ></link>
-      <link
-        href="https://fonts.googleapis.com/css2?family=Inter:wght@400&display=swap"
-        rel="stylesheet"
-      ></link>
 
       <div className={`body-Form ${darkMode ? 'dark-mode' : ''}`}>
         <p>Add New Course</p>

@@ -1,6 +1,8 @@
 
 import { Link } from 'react-router-dom'
 import useDelete from '../Hooks/useDelete';
+
+
 const Buttoms = ({ id ,refreshCourses}: { id: string, refreshCourses: () => void }) => {
   
   const handleClick = () => {
