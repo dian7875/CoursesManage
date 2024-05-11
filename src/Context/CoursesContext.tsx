@@ -1,8 +1,6 @@
 import React from "react";
 
 const CoursesContext = React.createContext({
-  CourseId: '',
-  setCourseId: (_id: string)=>{},
   pageNumber: 0,
   setPageNumber: (_value: number)=>{},
   maxPageNumber: 0,
