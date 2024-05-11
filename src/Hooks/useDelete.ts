@@ -5,7 +5,7 @@ import { confirmAction, correct, fail, recharged } from "../components/alerts/al
 const useDelete = async (id: string, refreshCourses: () => void): Promise<void> => {
 
   try {
-    const result = await confirmAction('Are you sure you want to delete this course?')
+    const result = await confirmAction('Are you sure you want to delete this course?', id, 'Course Id:')
     if (result) {
       await deleteCourse(id);
       recharged(1000, `Delete Course ${id}`);
