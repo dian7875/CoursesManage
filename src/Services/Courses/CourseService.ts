@@ -1,27 +1,25 @@
-import Course from "../../types/courses";
+
+import { Course } from "../../types/courses";
+import api from "../AxiosConfig";
 
 
 /* eslint-disable @typescript-eslint/no-explicit-any */
 const urlCoursesBase = `https://662d9fcea7dda1fa378af332.mockapi.io/api/PR4/courses`;
 
 
-const getAllCoursesPages = async () =>{
-    const response = await fetch(urlCoursesBase);
-    const result = await response.json();
+const getCourses = async(page:number,limit:number,searchName?:string):Promise<Course[]>=>{
+    const response = await api.get('courses', {
+        params: {
+          page,
+          limit,
+           ...(searchName ? { name: searchName } : {})
+        },
+      });
+    const result = response.data;
     return result;
 }
 
-const getAllCourses = async (page: number, limit: number) => {
-    const response = await fetch(urlCoursesBase+`?page=${page}&limit=${limit}`);
-    const result = await response.json();
-    return result;
-};
 
-const getCourseById = async (id: string) => {
-    const response = await fetch(`${urlCoursesBase}/${id}`);
-    const result = await response.json();
-    return result;
-}
 const createCourse = async (data : Course) => {
     const response = await fetch(urlCoursesBase, {
         method: 'POST',
@@ -40,7 +38,7 @@ const createCourse = async (data : Course) => {
 }
 
 
-const editCourse = async ({data}:{data: Course}) =>{
+const editCourse = async (data: Course) =>{
     const response = await fetch(`${urlCoursesBase}/${data.id}`,{
         method:'PUT',
         headers: {
@@ -69,35 +67,11 @@ const deleteCourse = async (id: string) => {
     return response.ok;
 }
 
-const searchCourse = async (name: string) => {
-    try {
-      const url = new URL(urlCoursesBase);
-      url.searchParams.append('name', name);
-  
-      const response = await fetch(url, {
-        method: 'GET',
-        headers: {'content-type':'application/json'},
-      });
-  
-      if (!response.ok) {
 
-        return [];
-      }
-  
-      const courses = await response.json();
-      return courses;
-    } catch (error) {
-      console.error('Error in searchCourse:', error);
-      return [];
-    }
-  }
 
 export {
-    getAllCourses,
-    getCourseById,
     createCourse,
     deleteCourse,
-    getAllCoursesPages,
     editCourse,
-    searchCourse
+    getCourses
 }
