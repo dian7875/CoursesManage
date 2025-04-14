@@ -7,7 +7,6 @@ import {
   Select,
   Table,
   TableBody,
-  TableCell,
   TableHead,
   TableHeadCell,
   TableRow,
@@ -16,6 +15,7 @@ import {
 import { useState } from "react";
 import image from "../assets/Loanding_Gif.gif";
 import AddNew from "./Modals/AddNew";
+import CourseRow from "./CourseRow";
 
 function TableComp() {
   const [searchName, setSearchName] = useState<string>("");
@@ -43,19 +43,19 @@ function TableComp() {
     <>
       <main className=" flex items-center justify-center w-full mt-10">
         <section className="w-11/12 space-y-5">
-          <div className=" flex justify-between">
+          <div className=" text-left">
             <h2 className=" text-2xl font-black">
               List Of Courses Of University Three Duckling
             </h2>
-            <Button color={"gray"} onClick={() => openAddNew(true)}>
-              Agregar nuevo
-            </Button>
           </div>
-          <div className="w-1/4">
+          <div className="w-full flex justify-between">
             <TextInput
               onChange={(e) => setSearchName(e.currentTarget.value)}
               placeholder="Course name"
             />
+            <Button color={"gray"} onClick={() => openAddNew(true)}>
+              Add new
+            </Button>
           </div>
           {isLoading && (
             <>
@@ -72,7 +72,7 @@ function TableComp() {
             </>
           )}
           {!isLoading && (
-            <Table className=" bg-white min-h-[60vh]">
+            <Table className=" bg-white min-h-[60vh] rounded-2xl">
               <TableHead className=" text-center">
                 <TableRow>
                   <TableHeadCell>ID</TableHeadCell>
@@ -86,24 +86,7 @@ function TableComp() {
               <TableBody className=" text-center text-black">
                 {courses &&
                   courses?.map((course) => (
-                    <TableRow key={course.id}>
-                      <TableCell>{course.id}</TableCell>
-                      <TableCell>{course.professor}</TableCell>
-                      <TableCell>{course.name}</TableCell>
-                      <TableCell className="">
-                        {course.status ? (
-                          <div className=" bg-blue-400 text-white rounded-md">
-                            Open
-                          </div>
-                        ) : (
-                          <div className=" bg-red-400 text-white rounded-md">
-                            Closed
-                          </div>
-                        )}
-                      </TableCell>
-                      <TableCell>{course.space_available}</TableCell>
-                      <TableCell></TableCell>
-                    </TableRow>
+                    <CourseRow key={course.id} course={course} />
                   ))}
               </TableBody>
             </Table>
