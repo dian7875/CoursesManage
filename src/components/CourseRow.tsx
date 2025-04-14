@@ -14,23 +14,23 @@ const CourseRow = ({ course }: { course: Course }) => {
   return (
     <>
       <Popover
-      className="hidden max-sm:block"
+        className="hidden max-sm:block"
         trigger="click"
         content={
           <div className=" flex flex-col items-start space-y-4 p-4 bg-zinc-200">
             <div className="">
               <button type="button" onClick={() => openView(true)}>
-                Ver info completa
+                View details
               </button>
             </div>
             <div className="">
               <button type="button" onClick={() => openEdit(true)}>
-                Editar
+                Edit
               </button>
             </div>
             <div className="">
               <button type="button" onClick={() => opendelete(true)}>
-                Eliminar
+                Delete
               </button>
             </div>
           </div>
