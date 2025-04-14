@@ -77,10 +77,10 @@ function TableComp() {
                 <TableRow>
                   <TableHeadCell>ID</TableHeadCell>
                   <TableHeadCell>Teacher’s Name</TableHeadCell>
-                  <TableHeadCell>Course Name </TableHeadCell>
-                  <TableHeadCell>Course Status</TableHeadCell>
-                  <TableHeadCell>Space Available</TableHeadCell>
-                  <TableHeadCell>Actions</TableHeadCell>
+                  <TableHeadCell className=" max-sm:rounded-tr-lg">Course Name </TableHeadCell>
+                  <TableHeadCell className=" max-sm:hidden">Course Status</TableHeadCell>
+                  <TableHeadCell className=" max-md:hidden">Space Available</TableHeadCell>
+                  <TableHeadCell className=" max-sm:hidden">Actions</TableHeadCell>
                 </TableRow>
               </TableHead>
               <TableBody className=" text-center text-black">

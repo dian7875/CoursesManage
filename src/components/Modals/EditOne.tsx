@@ -36,7 +36,7 @@ const EditOne = ({ open, setOpen, course }: extendProps) => {
   };
   return (
     <Modal dismissible show={open} onClose={() => setOpen(false)}>
-      <form onSubmit={handleSubmit(onConfirm)} className="space-y-4 p-4">
+      <form onSubmit={handleSubmit(onConfirm)} className="space-y-4 p-4 max-sm:grid max-sm:grid-cols-2 max-sm:space-x-3">
         <div>
           <label>Course Code</label>
           <input
@@ -118,7 +118,7 @@ const EditOne = ({ open, setOpen, course }: extendProps) => {
           </div>
         </div>
 
-        <ModalFooter>
+        <ModalFooter className=" max-sm:col-span-2">
           <Button color="red" onClick={() => setOpen(false)}>
             Cancel
           </Button>
